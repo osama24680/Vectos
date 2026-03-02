@@ -1,0 +1,31 @@
+.about_achivments_list {
+    list-style: none;
+    padding-top: 30px;
+    padding-left: 0px;
+    margin-top: 20px;
+}
+
+.about_achivments_list li {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    font-size: 25px;
+
+}
+
+.about_achivments_list li svg {
+    margin-right: 10px;
+    color: #307bc4;
+    font-size: 25px;
+}
+
+.about_details {
+    color: rgba(39, 71, 96, 0.52);
+    font-size: 20px;
+}
+
+.about_heading {
+    color: #307bc4 !important;
+}
