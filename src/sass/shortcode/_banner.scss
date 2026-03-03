@@ -28,11 +28,15 @@
     max-width: 500px;
     position: relative;
     z-index: 1;
+    
   }
   .cs_banner_img {
     position: absolute;
-    bottom: -30px;
-    right: -15px;
+    bottom: 8%;
+    right: 0px;
+    max-width: 435px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
     @media (max-width: 1700px) {
       max-width: 535px;
     }

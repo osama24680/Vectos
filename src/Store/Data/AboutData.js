@@ -1,37 +1,42 @@
 export const departmentData = [
   {
-    title: "Diagnostic Testing and Health Monitoring",
+    title: "Real-Time Biometric Sensing",
     subTitle:
-      "Our smart shoes are equipped with sensors to monitor vital signs, including heart rate, temperature, and blood oxygen levels, providing real-time insights into your health.",
+      "Vectos continuously captures heart rate, motion patterns, temperature, and oxygen levels — directly from your movement.",
+    iconUrl: "/images/icons/calendar_white.svg",
+    // href: "/departments/department-details",
+  },
+
+  {
+    title: "AI Pattern Recognition",
+    subTitle:
+      "Our models analyze micro-deviations in your data before symptoms become noticeable.",
     iconUrl: "/images/icons/calendar_white.svg",
     // href: "/departments/department-details",
   },
   {
-    title: "Detect early signs of conditions",
+    title: "Early Risk Detection",
     subTitle:
-      "Vectos’s smart shoes help detect early signs of conditions like heart disease and Parkinson's, offering preventive care from the convenience of your footwear.",
+      "Vectos identifies potential health risks days or weeks before traditional awareness.",
     iconUrl: "/images/icons/calendar_white.svg",
-    // href: "/services/fitness-programs",
+    // href: "/departments/department-details",
   },
 
   {
-    title: "Technical Support",
+    title: "Continuous Passive Monitoring",
     subTitle:
-      "Our technology assists individuals recovering from health challenges by continuously monitoring their progress and adjusting to their needs.",
+      "No wearables. No wrist devices. Just intelligent footwear working in the background.",
     iconUrl: "/images/icons/calendar_white.svg",
-    // href: "/services/data-analysis",
+    // href: "/departments/department-details",
   },
   {
-    title: "Chronic Condition Management",
+    title: "Scalable Health Intelligence Platform",
     subTitle:
-      "Vectos supports patients with chronic conditions through continuous health tracking, empowering them to manage their health daily.",
+      "From individual users to research pilots and clinical collaborations.",
     iconUrl: "/images/icons/calendar_white.svg",
+    // href: "/departments/department-details",
   },
-  {
-    title: "Affordable, Accessible Healthcare",
-    subTitle: 'Our smart shoes bring advanced healthcare technology to a broader audience, making continuous health monitoring accessible and affordable.',
-    iconUrl: "/images/icons/calendar_white.svg",
-  },
+
 ];
 
 export const featureListData = [

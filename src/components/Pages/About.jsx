@@ -30,7 +30,7 @@ export default function About() {
       />
       <Section topMd={200} topLg={150} topXl={110}>
         <DepartmentSectionStyle2
-          sectionTitle="Provides Our Best Services"
+          sectionTitle="The Intelligence Inside Vectos"
           sectionTitleUp="SERVICES"
           data={departmentData}
         />
