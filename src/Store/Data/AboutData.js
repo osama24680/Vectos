@@ -74,11 +74,28 @@ export const funFactData = [
 
 export const teamData = [
   {
-    imgUrl: "images/about/osama.jpeg",
+    imgUrl: "images/about/yasmine.png",
+    name: "Dr. Yasmine Mokhtar",
+    designation: "Lecturer at the Faculty of Fine Arts, Alexandria University",
+    description:
+      "Founder and Lead Researcher of Vectos.",
+    social: [
+      {
+        icon: "fa6-brands:linkedin-in",
+        href: "https://www.linkedin.com/in/yasmine-mokhtar-phd/",
+      },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/gasmin.arts",
+      },
+    ],
+  },
+  {
+    imgUrl: "images/about/osama.png",
     name: "Eng. Osama Megahed",
     designation: "EC Engineer",
     description:
-      "Lead Engineer – Specializes in software and AI-driven health solutions.",
+      "Co-Founder and Lead Engineer of Vectos.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -86,7 +103,58 @@ export const teamData = [
       },
       {
         icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/share/194553PAEn/",
+      },
+    ],
+  },
+  {
+    imgUrl: "images/about/ebraheem.png",
+    name: "Eng. Ebraheem Ragab",
+    designation: "Computer Engineer",
+    description:
+      "Communications and PR Manager.",
+    social: [
+      {
+        icon: "fa6-brands:linkedin-in",
+        href: "https://www.facebook.com/ebraheem.zidan.1",
+      },
+      {
+        icon: "fa6-brands:facebook-f",
         href: "https://www.facebook.com/profile.php?id=61570898771821",
+      },
+    ],
+  },
+  {
+    imgUrl: "images/about/mayar.png",
+    name: "Eng. Mayar Magdy",
+    designation: "EC Engineer",
+    description:
+      "Electronics Engineer.",
+    social: [
+      {
+        icon: "fa6-brands:linkedin-in",
+        href: "https://www.facebook.com/share/1BCbjmQD8o/",
+      },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.linkedin.com/in/mayar-magdy-00a63022a/",
+      },
+    ],
+  },
+  {
+    imgUrl: "images/about/hesham.png",
+    name: "Eng. Ahmed Hesham",
+    designation: "Computer Engineer",
+    description:
+      "Software Engineer.",
+    social: [
+      {
+        icon: "fa6-brands:linkedin-in",
+        href: "https://www.linkedin.com/in/ahmed-hesham-b34755235/",
+      },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/share/1Aq4BVxe4m/",
       },
     ],
   },

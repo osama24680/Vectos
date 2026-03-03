@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useContext } from "react";
 import { shoesStore } from "../../Store/contextAPI.js";
 import Hero from "../Hero";
@@ -6,15 +6,15 @@ import AboutSection from "../Section/AboutSection";
 import Banner from "../Section/BannerSection";
 import Section from "../Section";
 import FeaturesSection from "../Section/FeaturesSection";
-import TestimonialSection from "../Section/TestimonialSection";
-import BlogSection from "../Section/BlogSection";
+// import TestimonialSection from "../Section/TestimonialSection";
+// import BlogSection from "../Section/BlogSection";
 import AppointmentSection from "../Section/AppointmentSection";
 import FaqSection from "../Section/FaqSection";
 import { pageTitle } from "../../helpers/PageTitle";
 
 export default function Home() {
   const ctx = useContext(shoesStore);
-  const { featureListData, faqData, blogData } = ctx.HomeData;
+  const { featureListData, faqData } = ctx.HomeData;
 
   pageTitle("Home");
   return (

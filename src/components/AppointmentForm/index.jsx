@@ -1,10 +1,10 @@
-import { Icon } from '@iconify/react';
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+// import { Icon } from '@iconify/react';
+// import  { useState } from 'react';
+// import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export default function AppointmentForm() {
-  const [selectedDate, setSelectedDate] = useState(null);
+  // const [selectedDate, setSelectedDate] = useState(null);
   return (
     <form action="#" className="row">
       <div className="col-lg-6">
