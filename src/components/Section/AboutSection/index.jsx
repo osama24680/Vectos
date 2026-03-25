@@ -1,8 +1,8 @@
 import React from 'react';
 import Spacing from '../../Spacing';
-import { SlCalender } from "react-icons/sl";
+// import { SlCalender } from "react-icons/sl";
 import { GiTargetPrize } from "react-icons/gi";
-import { LuDollarSign } from "react-icons/lu";
+// import { LuDollarSign } from "react-icons/lu";
 import './style.css';
 export default function AboutSection({
   imgUrl,

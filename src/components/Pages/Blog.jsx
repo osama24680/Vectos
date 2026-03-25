@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 import { useContext } from "react";
 import { shoesStore } from "../../Store/contextAPI.js";
-import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
+// import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
 import Section from "../Section";
 import BlogSectionStyle2 from "../Section/BlogSection/index.jsx";
 import Breadcrumb from "../Breadcrumb";

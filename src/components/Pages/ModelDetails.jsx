@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import BannerSectionStyle7 from '../Section/BannerSection/BannerSectionStyle7';
 import Section from '../Section';
 import AppointmentSection from '../Section/AppointmentSection';
@@ -8,32 +8,32 @@ import BreadcrumbStyle2 from '../Breadcrumb/BreadcrumbStyle2';
 import TeamSectionStyle3 from '../Section/TeamSection/TeamSectionStyle3';
 import { pageTitle } from '../../helpers/PageTitle';
 
-const featureData = [
-  {
-    title: 'Vaccinations Department',
-    subTitle:
-      'The Pediatric Department provides vaccinations to help protect children from a range of illnesses and diseases, including measles.',
-    iconUrl: '/images/departments/icon_9.svg',
-  },
-  {
-    title: 'Management of acute illnesses',
-    subTitle:
-      'The Pediatric Department provides treatment for common childhood illnesses, such as ear infections, strep throat, and viral infections.',
-    iconUrl: '/images/departments/icon_10.svg',
-  },
-  {
-    title: 'Treatment of chronic conditions',
-    subTitle:
-      'The Pediatric Department provides ongoing care and treatment for children with chronic conditions such as asthma, diabetes, and allergies.',
-    iconUrl: '/images/departments/icon_11.svg',
-  },
-  {
-    title: 'Developmental screenings',
-    subTitle:
-      'The Pediatric Department provides regular developmental screenings to identify any delays or concerns and provide early intervention services.',
-    iconUrl: '/images/departments/icon_12.svg',
-  },
-];
+// const featureData = [
+//   {
+//     title: 'Vaccinations Department',
+//     subTitle:
+//       'The Pediatric Department provides vaccinations to help protect children from a range of illnesses and diseases, including measles.',
+//     iconUrl: '/images/departments/icon_9.svg',
+//   },
+//   {
+//     title: 'Management of acute illnesses',
+//     subTitle:
+//       'The Pediatric Department provides treatment for common childhood illnesses, such as ear infections, strep throat, and viral infections.',
+//     iconUrl: '/images/departments/icon_10.svg',
+//   },
+//   {
+//     title: 'Treatment of chronic conditions',
+//     subTitle:
+//       'The Pediatric Department provides ongoing care and treatment for children with chronic conditions such as asthma, diabetes, and allergies.',
+//     iconUrl: '/images/departments/icon_11.svg',
+//   },
+//   {
+//     title: 'Developmental screenings',
+//     subTitle:
+//       'The Pediatric Department provides regular developmental screenings to identify any delays or concerns and provide early intervention services.',
+//     iconUrl: '/images/departments/icon_12.svg',
+//   },
+// ];
 
 const doctorData = [
   {

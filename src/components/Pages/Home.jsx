@@ -1,7 +1,7 @@
 // import React from "react";
 import { useContext } from "react";
 import { shoesStore } from "../../Store/contextAPI.js";
-import parse from 'html-react-parser';
+// import parse from 'html-react-parser';
 import Hero from "../Hero";
 import AboutSection from "../Section/AboutSection";
 import Banner from "../Section/BannerSection";
