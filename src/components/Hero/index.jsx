@@ -1,7 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import VideoModal from '../VideoModal';
-// import { Link } from 'react-router-dom';
+import './style.css';
 
 export default function Hero({
   title,
@@ -11,17 +11,22 @@ export default function Hero({
   videoBtnText,
   videoUrl,
   infoList,
-  // btnText,
-  // btnUrl,
 }) {
   return (
     <section className="cs_hero cs_style_1">
       <div
         className="cs_hero_wrap cs_bg_filed"
-        style={{ backgroundImage: `url(${bgUrl})` }}
+        // style={{ backgroundImage: bgUrl ? `url(${bgUrl})` : 'none' }}
       >
+        <div className="hero-overlay"></div>
+        <div className="hero-grid"></div>
+        <div className="hero-text-glow"></div>
+        <div className="hero-boot-glow"></div>
+        <div className="hero-sensor-glow"></div>
+
         <div className="container">
-          <div className="cs_hero_text">
+          <div className="cs_hero_content">
+            <div className="cs_hero_text">
             <h1 className="cs_hero_title cs_fs_94">{parse(title)}</h1>
             <p className="cs_hero_subtitle cs_fs_20 cs_heading_color">
               {parse(subTitle)}
@@ -34,7 +39,12 @@ export default function Hero({
               />
             </div>
           </div>
-          <img src={imgUrl} alt="Hero" className="cs_hero_img" />
+            <div className="cs_hero_img_wrap">
+              <img src={imgUrl} alt="Hero" className="cs_hero_img" />
+          </div>
+          
+          </div>
+
           <div className="cs_hero_info_wrap cs_shadow_1 cs_white_bg cs_radius_15">
             {infoList.map((item, index) => (
               <div className="cs_hero_info_col" key={index}>
@@ -53,15 +63,6 @@ export default function Hero({
                 </div>
               </div>
             ))}
-            <div className="cs_hero_info_col">
-              {/* <Link to={btnUrl} className="cs_btn cs_style_1">
-                <span>{btnText}</span>
-                <i>
-                  <img src="/images/icons/arrow_white.svg" alt="Icon" />
-                  <img src="/images/icons/arrow_white.svg" alt="Icon" />
-                </i>
-              </Link> */}
-            </div>
           </div>
         </div>
       </div>

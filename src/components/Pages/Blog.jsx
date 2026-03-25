@@ -20,13 +20,13 @@ export default function Blog() {
       <Section bottomMd={200} bottomLg={150} bottomXl={110}>
         <BlogSectionStyle2 data={blogData} />
       </Section>
-      <Section className="cs_footer_margin_0">
+      {/* <Section className="cs_footer_margin_0">
         <BannerSectionStyle9
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
           imgUrl="/images/footer/backSeat.png"
         />
-      </Section>
+      </Section> */}
     </>
   );
 }

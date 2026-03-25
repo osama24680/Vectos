@@ -1,0 +1,217 @@
+.cs_shape_wrap {
+    position: relative;
+    padding: 110px 0;
+    background: linear-gradient(180deg, #F7FBFF 0%, #EEF6FD 100%);
+    overflow: hidden;
+}
+
+.cs_shape_1 {
+    position: absolute;
+    top: 80px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(61, 169, 252, 0.12), transparent 68%);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.cs_random_features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.cs_random_features_col {
+    height: 100%;
+}
+
+.cs_random_features_col .cs_iconbox,
+.cs_random_features_col .cs_feature,
+.cs_random_features_col .cs_card {
+    height: 100%;
+}
+
+.cs_iconbox {
+    height: 100%;
+    padding: 34px 28px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(120, 170, 220, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 14px 35px rgba(80, 125, 170, 0.10);
+    transition: all 0.3s ease;
+}
+
+.cs_iconbox:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(80, 125, 170, 0.16);
+}
+
+.cs_iconbox_title {
+    color: #4b1515;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.cs_iconbox_subtitle,
+.cs_iconbox p {
+    color: #5E7892;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+    .cs_shape_wrap {
+        padding: 90px 0;
+    }
+
+    .cs_random_features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cs_shape_1 {
+        width: 280px;
+        height: 280px;
+        right: -80px;
+        top: 40px;
+    }
+}
+
+.cs_shape_wrap {
+    position: relative;
+    padding: 110px 0;
+    background: linear-gradient(180deg, #F7FBFF 0%, #EEF6FD 100%);
+    overflow: hidden;
+}
+
+.cs_shape_1 {
+    position: absolute;
+    top: 0px;
+    right: -120px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(61, 169, 252, 0.12), transparent 68%);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.cs_random_features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.cs_random_features_col {
+    height: 100%;
+}
+
+.cs_random_features_col .cs_iconbox,
+.cs_random_features_col .cs_feature,
+.cs_random_features_col .cs_card {
+    /* height: 100%; */
+    width: 100%;
+}
+
+.cs_iconbox {
+    height: 100%;
+    padding: 34px 28px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(120, 170, 220, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 14px 35px rgba(80, 125, 170, 0.10);
+    transition: all 0.3s ease;
+}
+
+.cs_iconbox:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(80, 125, 170, 0.16);
+}
+
+.cs_iconbox_title {
+    color: #4b1515;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.cs_iconbox_subtitle,
+.cs_iconbox p {
+    color: #5E7892;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+@media (max-width: 991px) {
+    .cs_shape_wrap {
+        padding: 90px 0;
+    }
+
+    .cs_random_features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cs_shape_1 {
+        width: 280px;
+        height: 280px;
+        right: -80px;
+        top: 40px;
+    }
+}
+
+.vectos_features_section {
+    position: relative;
+    padding: 120px 0;
+}
+
+.vectos_features_bg {
+    background: radial-gradient(circle, rgba(61, 169, 252, 0.12), transparent 70%);
+    filter: blur(40px);
+}
+
+.vectos_features_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.vectos_feature_card {
+    height: 100%;
+    padding: 30px;
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(120, 170, 220, 0.18);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: 0 14px 35px rgba(80, 125, 170, 0.10);
+
+    transition: all 0.3s ease;
+}
+
+.vectos_feature_card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 50px rgba(80, 125, 170, 0.18);
+}
+
+@media (max-width: 991px) {
+    .vectos_features_grid {
+        grid-template-columns: 1fr;
+    }
+}

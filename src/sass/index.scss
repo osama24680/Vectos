@@ -50,3 +50,16 @@
 @import 'shortcode/cta';
 @import 'shortcode/pricing_card';
 @import 'custom';
+
+:root {
+    --color-primary: #1E2F45;
+    --color-primary-2: #243B53;
+    --color-bg-soft: #EEF6FB;
+    --color-bg-alt: #DDECF8;
+    --color-accent-cyan: #35D6FF;
+    --color-accent-orange: #F47C3C;
+    --color-text-main: #1E2F45;
+    --color-text-body: #52667A;
+    --color-surface: #FFFFFF;
+    --color-border: rgba(36, 59, 83, 0.10);
+}

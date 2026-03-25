@@ -1,7 +1,7 @@
 import React from 'react';
 import BreadcrumbStyle2 from '../Breadcrumb/BreadcrumbStyle2';
 import Section from '../Section';
-import BannerSectionStyle9 from '../Section/BannerSection/BannerSectionStyle9';
+// import BannerSectionStyle9 from '../Section/BannerSection/BannerSectionStyle9';
 import DoctorDetailsSection from '../Section/DoctorDetailsSection';
 import AppointmentSectionStyle2 from '../Section/AppointmentSection/AppointmentSectionStyle2';
 import { pageTitle } from '../../helpers/PageTitle';
@@ -91,13 +91,13 @@ export default function DoctorDetails() {
         />
       </Section>
 
-      <Section className="cs_footer_margin_0">
+      {/* <Section className="cs_footer_margin_0">
         <BannerSectionStyle9
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
           imgUrl="/images/doctors/banner_img_3.png"
         />
-      </Section>
+      </Section> */}
     </>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { shoesStore } from "../../Store/contextAPI.js";
 import BannerSectionStyle3 from "../Section/BannerSection/BannerSectionStyle3";
-import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
+// import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
 import Section from "../Section";
 import DepartmentSectionStyle2 from "../Section/DepartmentSection/DepartmentSectionStyle2";
 
@@ -61,13 +61,13 @@ export default function About() {
         />
       </Section>
 
-      <Section className="cs_footer_margin_0">
+      {/* <Section className="cs_footer_margin_0">
         <BannerSectionStyle9
           imgUrl="images/footer/backSeat.png"
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
         />
-      </Section>
+      </Section> */}
     </>
   );
 }

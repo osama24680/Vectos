@@ -1,0 +1,360 @@
+.cs_about.cs_style_1 {
+    position: relative;
+    padding: 120px 0;
+    background: linear-gradient(180deg, #f8fbff 0%, #f1f7fd 100%);
+    overflow: hidden;
+}
+
+.cs_about.cs_style_1::before {
+    content: "";
+    position: absolute;
+    left: 38%;
+    top: 18%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(61, 169, 252, 0.10), transparent 68%);
+    filter: blur(34px);
+    pointer-events: none;
+}
+
+.cs_about.cs_style_1::after {
+    content: "";
+    position: absolute;
+    right: 10%;
+    top: 14%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255, 140, 66, 0.10), transparent 70%);
+    filter: blur(26px);
+    pointer-events: none;
+}
+
+.cs_about_img {
+    position: relative;
+    border-radius: 28px;
+    overflow: visible;
+    max-width: 940px;
+}
+
+.cs_about_img>img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 28px;
+    background: linear-gradient(180deg, #0b1320 0%, #101a2b 100%);
+    border: 1px solid rgba(120, 170, 220, 0.14);
+    box-shadow:
+        0 24px 60px rgba(27, 60, 97, 0.14),
+        0 10px 24px rgba(15, 38, 68, 0.10);
+    filter: saturate(0.94) contrast(1.02);
+}
+
+.cs_about_img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 120px;
+    border-radius: 0 0 28px 28px;
+    background: linear-gradient(to top, rgba(10, 18, 30, 0.16), transparent);
+    pointer-events: none;
+}
+
+.cs_about_mini_img {
+    position: absolute;
+    top: -34px;
+    left: 74%;
+    transform: translateX(-50%);
+    width: 118px;
+    height: 118px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(120, 170, 220, 0.18);
+    box-shadow: 0 14px 34px rgba(70, 115, 160, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.cs_about_mini_img .cs_rotate_animation {
+    width: 84%;
+    height: 84%;
+    object-fit: contain;
+}
+
+.cs_right_icon {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.cs_about_content {
+    max-width: 560px;
+    padding-left: 22px;
+}
+
+.cs_about_content .cs_section_title {
+    color: #21496c;
+    letter-spacing: -1.5px;
+    line-height: 1.02;
+    margin-bottom: 8px;
+}
+
+.cs_about_content .cs_section_subtitle {
+    color: #398fdc !important;
+    line-height: 1.35;
+    font-weight: 500;
+    text-transform: none !important;
+    letter-spacing: 0;
+    max-width: 560px;
+}
+
+.cs_about_text_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cs_about_text_list>li {
+    display: block;
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.cs_about_text_list>li>i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.about_heading {
+    color: #307bc4 !important;
+    font-size: clamp(28px, 2.2vw, 20px) !important;
+    line-height: 1.35;
+    margin-bottom: 18px;
+    max-width: 560px;
+}
+
+.about_details {
+    color: rgba(39, 71, 96, 0.58);
+    font-size: 21px;
+    line-height: 1.65;
+    font-weight: 500;
+    max-width: 540px;
+    margin-bottom: 0;
+}
+
+.about_achivments_list {
+    list-style: none;
+    padding-top: 28px;
+    padding-left: 0;
+    margin-top: 18px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.about_achivments_list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 18px;
+    line-height: 1.45;
+    color: rgba(39, 71, 96, 0.58);
+    font-weight: 500;
+}
+
+.about_achivments_list li svg {
+    margin-right: 0;
+    color: #307bc4;
+    font-size: 24px;
+    flex: 0 0 auto;
+}
+
+/* spacing tweaks */
+.cs_about_content .cs_height_5 {
+    height: 14px !important;
+}
+
+/* large screens */
+@media (max-width: 1399px) {
+    .cs_about.cs_style_1 {
+        padding: 110px 0;
+    }
+
+    .cs_about_content {
+        padding-left: 10px;
+    }
+
+    .cs_about_mini_img {
+        left: 72%;
+    }
+}
+
+/* medium screens */
+@media (max-width: 1199px) {
+    .cs_about_content .cs_section_title {
+        font-size: 62px !important;
+    }
+
+    .cs_about_content .cs_section_subtitle {
+        font-size: 28px !important;
+    }
+
+    .about_heading {
+        font-size: 30px !important;
+    }
+
+    .about_details {
+        font-size: 18px;
+    }
+
+    .about_achivments_list li {
+        font-size: 21px;
+    }
+
+    .cs_about_mini_img {
+        width: 104px;
+        height: 104px;
+        top: -28px;
+        left: 70%;
+    }
+}
+
+/* tablet */
+@media (max-width: 991px) {
+    .cs_about.cs_style_1 {
+        padding: 90px 0;
+    }
+
+    .cs_about_content {
+        max-width: 100%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .cs_about_text_list>li>i {
+        justify-content: center;
+    }
+
+    .about_heading,
+    .about_details {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about_achivments_list {
+        align-items: center;
+    }
+
+    .about_achivments_list li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cs_about_img {
+        max-width: 100%;
+    }
+
+    .cs_about_mini_img {
+        left: 50%;
+        top: -24px;
+        transform: translateX(-50%);
+    }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+    .cs_about.cs_style_1 {
+        padding: 80px 0;
+    }
+
+    .cs_about_img>img {
+        border-radius: 22px;
+    }
+
+    .cs_about_img::after {
+        border-radius: 0 0 22px 22px;
+    }
+
+    .cs_about_mini_img {
+        width: 90px;
+        height: 90px;
+        top: -18px;
+    }
+
+    .cs_about_content .cs_section_title {
+        font-size: 44px !important;
+        line-height: 1.08;
+    }
+
+    .cs_about_content .cs_section_subtitle {
+        font-size: 22px !important;
+        line-height: 1.4;
+    }
+
+    .about_heading {
+        font-size: 24px !important;
+    }
+
+    .about_details {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .about_achivments_list li {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .about_achivments_list li svg {
+        font-size: 20px;
+    }
+}
+
+.cs_about_content .cs_section_title {
+    font-size: clamp(42px, 4.2vw, 60px) !important;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+
+.cs_about_content .cs_section_subtitle {
+    font-size: 20px !important;
+    line-height: 1.4;
+    font-weight: 500;
+    max-width: 520px;
+}
+
+.about_details {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(39, 71, 96, 0.55);
+    max-width: 500px;
+}
+
+.about_details {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(39, 71, 96, 0.55);
+    max-width: 500px;
+}
+
+.about_achivments_list li svg {
+    font-size: 18px;
+}
+
+.about_achivments_list li svg {
+    font-size: 18px;
+}

@@ -3,7 +3,7 @@ import Spacing from '../../Spacing';
 import { SlCalender } from "react-icons/sl";
 import { GiTargetPrize } from "react-icons/gi";
 import { LuDollarSign } from "react-icons/lu";
-import './index.css';
+import './style.css';
 export default function AboutSection({
   imgUrl,
   spiningImgUrl,
@@ -66,14 +66,17 @@ export default function AboutSection({
                     <h5 className="m-0 about_details">{item.featureListSubTitle}</h5>
                     <ul className='about_achivments_list'>
                       <li>
-                        <SlCalender /> Founded in 2024
+                        <GiTargetPrize /> Continuous physiological monitoring
                       </li>
                       <li>
-                        <GiTargetPrize /> Top 10 - AAST Rally (250 teams)
+                        <GiTargetPrize /> Motion-aware signal interpretation
                       </li>
                       <li>
-                        <LuDollarSign /> $1000 Funding - Plan International
+                        <GiTargetPrize /> Designed for earlier risk awareness
                       </li>
+                      
+
+
                     </ul>
                   </li>
                 ))}

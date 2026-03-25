@@ -14,7 +14,7 @@ export default function ContactInfoWidget() {
         <i className="cs_accent_bg">
           <Icon icon="fluent:call-24-regular" />
         </i>
-        +201111765114
+        +358449547051
       </li>
       <li>
         <i className="cs_accent_bg">

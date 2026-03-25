@@ -12,7 +12,7 @@ import ReplyWidget from "../Widget/ReplyWidget";
 import { pageTitle } from "../../helpers/PageTitle";
 import { useParams } from "react-router-dom";
 
-import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9.jsx";
+// import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9.jsx";
 
 export default function BlogDetails() {
   const { idBlogPost } = useParams();
@@ -96,13 +96,13 @@ export default function BlogDetails() {
         </div>
       </div>
       <Spacing md="200" xl="150" lg="110" />
-      <Section className="cs_footer_margin_0">
+      {/* <Section className="cs_footer_margin_0">
         <BannerSectionStyle9
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
           imgUrl="/images/footer/backSeat.png"
         />
-      </Section>
+      </Section> */}
     </>
   );
 }

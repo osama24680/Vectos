@@ -1,51 +1,65 @@
 export const featureListData = [
   {
     iconSrc: "/images/home_1/compassion.svg",
-    title: "Sense",
+    title: "Physiological Signals",
     subTitle:
-      "Collects continuous heart, motion, and temperature data in real-world conditions.",
+      "Heart rate, oxygen levels, temperature, and other vital indicators tracked continuously.",
   },
   {
     iconSrc: "/images/home_1/excellence.svg",
-    title: "Analyze",
+    title: "Movement Intelligence",
     subTitle:
-      "Applies AI models to detect subtle physiological pattern deviations over time.",
+      "Gait, balance, and motion patterns analyzed to detect subtle physical changes.",
   },
   {
     iconSrc: "/images/home_1/integrity.svg",
-    title: "Alert",
-    subTitle: `Detects early signals of emerging risk and delivers AI-driven insights that help close the gap between silent changes and visible outcomes.`,
-  }
+    title: "Signal Fusion & Insight",
+    subTitle: `Multiple data streams combined into meaningful insights and early risk indicators.`,
+  },
+
+
 ];
+
 export const faqData = [
   {
     title: "What is Vectos?",
-    content: `Vectos is an AI-powered wearable platform that continuously monitors physiological patterns and movement to detect early deviations before symptoms appear. It is not a medical diagnostic device.`,
+    content:
+      "Vectos is a wearable monitoring system designed to capture physiological and movement-related signals and turn them into early health insights.",
   },
   {
     title: "Is Vectos a medical device?",
-    content: `Vectos provides early risk monitoring and insights. It is designed for preventive awareness and research collaboration, not medical diagnosis or treatment.`,
-  },
-
-  {
-    title: "What should I bring to my appointment?",
-    content: `To ensure a seamless experience during your appointment, we recommend bringing your Vectos smart shoes (if you have purchased them) for calibration and data synchronization. Additionally, bring any relevant medical history documents if applicable, and prepare a list of questions or concerns related to your health monitoring data for discussion with our team.`,
+    content:
+      "Vectos is designed for monitoring and early risk awareness. It is not intended to replace clinical diagnosis or emergency medical care.",
   },
   {
     title: "How does Vectos detect risk?",
-    content: `By combining heart rate variability, motion analysis, and temperature trends, our AI models identify subtle pattern deviations from your personal baseline.`,
+    content:
+      "Vectos combines multiple signals such as physiological data and movement patterns, then interprets them together to identify early changes and potential risk indicators.",
   },
   {
-    title: "Is my data secure?",
-    content: `All physiological data is encrypted and processed securely. User privacy and data protection are a core part of our architecture.`,
+    title: "What signals does Vectos monitor?",
+    content:
+      "Depending on the system configuration, Vectos can monitor metrics such as heart rate, oxygen saturation, temperature, motion, gait, and related activity patterns.",
   },
   {
-    title: "When will Vectos be available?",
-    content: `Vectos is currently in prototype and pilot validation phase. Early access is available through our pilot request form.`,
+    title: "How is Vectos different from a smartwatch?",
+    content:
+      "Vectos is built around multimodal sensing and movement-aware monitoring, with a focus on early signal interpretation rather than isolated point-in-time tracking.",
   },
   {
     title: "Who is Vectos designed for?",
-    content: `Vectos is built for individuals seeking proactive health monitoring, researchers, and pilot healthcare collaborators.`,
+    content:
+      "Vectos is designed for real-world monitoring scenarios, including users who may benefit from continuous insight into movement, physiological changes, and early warning patterns.",
+  },
+  {
+    title: "Is my data secure?",
+    content:
+      "Vectos is intended to follow secure data handling practices, with privacy and responsible data use considered as part of the system design.",
+  },
+  {
+    title: "When will Vectos be available?",
+    content:
+      "Vectos is currently evolving through development and pilot-stage exploration. Availability will depend on product readiness, validation, and rollout plans.",
   },
 ];
 export const blogData = [

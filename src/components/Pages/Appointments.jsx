@@ -11,8 +11,8 @@ export default function Appointments() {
       <BannerSectionStyle3
         bgUrl="/images/appointments/banner_bg.svg"
         imgUrl="/images/appointments/banner_img.png"
-        title="Take Control Before Symptoms Appear."
-        subTitle="Fill out the appointment form below to schedule a consultation with one of our healthcare professionals."
+        title="Built for Real-World Monitoring."
+        subTitle="Designed for movement, daily life, and continuous monitoring outside controlled environments."
       />
       <Section
         topMd={200}

@@ -1,6 +1,6 @@
 import React from 'react';
 import BannerSectionStyle3 from '../Section/BannerSection/BannerSectionStyle3';
-import BannerSectionStyle9 from '../Section/BannerSection/BannerSectionStyle9';
+// import BannerSectionStyle9 from '../Section/BannerSection/BannerSectionStyle9';
 import Section from '../Section';
 import GallerySectionStyle2 from '../Section/GallerySection/GallerySectionStyle2';
 import { pageTitle } from '../../helpers/PageTitle';
@@ -34,13 +34,13 @@ export default function Gallery() {
       >
         <GallerySectionStyle2 data={galleryData} />
       </Section>
-      <Section className="cs_footer_margin_0">
+      {/* <Section className="cs_footer_margin_0">
         <BannerSectionStyle9
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
           imgUrl="images/footer/backSeat.png"
         />
-      </Section>
+      </Section> */}
     </>
   );
 }

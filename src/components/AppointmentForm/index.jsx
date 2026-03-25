@@ -17,7 +17,7 @@ export default function AppointmentForm() {
         <input
           type="text"
           className="cs_form_field"
-          placeholder="+201111765114"
+          placeholder="Rally"
         />
         <div className="cs_height_42 cs_height_xl_25" />
       </div>
@@ -39,7 +39,7 @@ export default function AppointmentForm() {
         <input
           type="text"
           className="cs_form_field"
-          placeholder="osama@gmail.com"
+          placeholder="rally@gmail.com"
         />
         <div className="cs_height_42 cs_height_xl_25" />
       </div>
