@@ -16,8 +16,10 @@ export const ShoesProvider = (props) => {
     setThingSpeakLoading(true);
     try {
       const response = await fetch(
-        "https://api.thingspeak.com/channels/2801905/feeds.json?api_key=NARKY00ANCSO04U5&results=20"
+        "https://api.thingspeak.com/channels/3313629/feeds.json?api_key=HZ20M3PJ2QG1ZNUL&results=2"
       );
+
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -28,7 +30,7 @@ export const ShoesProvider = (props) => {
       );
 
       setThingSpeakData({ ...result, feeds: sortedFeeds });
-      // console.log(result.feeds);
+      console.log("results:", result.feeds);
     } catch (err) {
       setThingSpeakError(err.message);
     } finally {
@@ -42,30 +44,36 @@ export const ShoesProvider = (props) => {
   //   const Humidity = thingSpeakData?.feeds.map((feed) =>console.log(feed.field4))
   //   const Speed = thingSpeakData?.feeds.map((feed) =>console.log(feed.field5))
   //   const Acceleration = thingSpeakData?.feeds.map((feed) =>console.log(feed.field6))
- 
-  const BloodOxygen = thingSpeakData?.feeds.map((item) =>
+
+  const TotalAcceleration = thingSpeakData?.feeds.map((item) =>
     parseFloat(item.field1)
   );
-  const HeartRate = thingSpeakData?.feeds.map((item) =>
+  const totalGyroscope = thingSpeakData?.feeds.map((item) =>
     parseFloat(item.field2)
   );
-  const Temperature = thingSpeakData?.feeds.map((item) =>
+  const stepCount = thingSpeakData?.feeds.map((item) =>
     parseFloat(item.field3)
   );
-  const Humidity = thingSpeakData?.feeds.map((item) => parseFloat(item.field4));
-  const Speed = thingSpeakData?.feeds.map((item) => parseFloat(item.field5));
-  const Acceleration = thingSpeakData?.feeds.map((item) =>
+  const fallCode = thingSpeakData?.feeds.map((item) => parseFloat(item.field4));
+  const HeartBeatAvgerage = thingSpeakData?.feeds.map((item) => parseFloat(item.field5));
+  const bloodOxygen = thingSpeakData?.feeds.map((item) =>
     parseFloat(item.field6)
   );
-const TimeData = thingSpeakData?.feeds.map((item) => {
-  const date = new Date(item.created_at); // Convert the string to a Date object
-  const time = date.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true, // Enable 12-hour format
+  const humidity = thingSpeakData?.feeds.map((item) =>
+    parseFloat(item.field7)
+  );
+  const Temperature = thingSpeakData?.feeds.map((item) =>
+    parseFloat(item.field8)
+  );
+  const TimeData = thingSpeakData?.feeds.map((item) => {
+    const date = new Date(item.created_at); // Convert the string to a Date object
+    const time = date.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true, // Enable 12-hour format
+    });
+    return time.replace(/ (am|pm)/, ""); // Remove 'AM' or 'PM'
   });
-  return time.replace(/ (am|pm)/, ""); // Remove 'AM' or 'PM'
-});
 
 
 
@@ -128,13 +136,15 @@ const TimeData = thingSpeakData?.feeds.map((item) => {
     thingSpeakData,
     thingSpeakError,
     thingSpeakLoading,
-    BloodOxygen,
-    HeartRate,
-    Temperature,
-    Humidity,
-    Speed,
-    Acceleration,
+    bloodOxygen,
+    totalGyroscope,
+    stepCount,
+    fallCode,
+    HeartBeatAvgerage,
+    TotalAcceleration,
     TimeData,
+    humidity,
+    Temperature
   };
 
   return (

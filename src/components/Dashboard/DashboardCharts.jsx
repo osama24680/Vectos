@@ -25,58 +25,47 @@ const DashboardCharts = () => {
     if (!thingSpeakData) return <div className="no-data">No data available</div>;
  
   
-  let fixedHeartRate = ctx.HeartRate.slice(7, 19)
-  fixedHeartRate.splice(7, 1);
-  let fixedBloodOxygen = ctx.BloodOxygen.slice(7, 18);
-  let fixedTemperature = ctx.Temperature.slice(7,18)
-  let fixedHumidity = ctx.Humidity.slice(7,18)
-  let fixedSpeed = ctx.Speed.slice(7,18)
-  let fixedAcceleration = ctx.Acceleration.slice(7,18)
-  let fixedTimeDate = ctx.TimeData.slice(7, 18).reverse();
- 
+  // let fixedHeartRate = ctx.HeartRate.slice(7, 19)
+  // fixedHeartRate.splice(7, 1);
+  let fixedTotalAcceleration = ctx.TotalAcceleration;
+  let fixedtotalGyroscope = ctx.totalGyroscope
+  let fixedstepCount = ctx.stepCount
+  let fixedfallCode = ctx.fallCode
+  let fixedHeartBeatAvgerage= ctx.HeartBeatAvgerage
+  let fixedTimeDate = ctx.TimeData.reverse();
 
-  const HeartRateData = fixedTimeDate.map((time, index) => ({
-    time: time,
-    HeartRate: fixedHeartRate[index],
-  }));
-  const BloodOxygenData = fixedTimeDate.map((time, index) => ({
-    time: time,
-    BloodOxygen: fixedBloodOxygen[index],
-  }));
-  const TemperatureData = fixedTimeDate.map((time, index) => ({
-    time: time,
-    Temperature: fixedTemperature[index] +7.5,
-  }));
-  const SweatData = fixedTimeDate.map((time, index) => ({
-    time: time,
-    Sweat: fixedHumidity[index] ,
-  }));
-  const SpeedData = fixedTimeDate.map((time, index) => ({
-    time: time,
-    Speed: fixedSpeed[index] *100 +0.7,
-  }));
-  const AccelerometerData = fixedTimeDate.map((time, index) => ({
-    time: time,
-    Accelerometer: fixedAcceleration[index] ,
-  }));
-  const HeartBloodTemperature = fixedTimeDate.map((time, index) => ({
-    time: time,
-    HeartRate: fixedHeartRate[index],
-    BloodOxygen: fixedBloodOxygen[index],
-    Temperature: fixedTemperature[index] + 7.5,
-  }));
-  const SpeedAccelerometer = fixedTimeDate.map((time, index) => ({
-    time: time,
-    Accelerometer: fixedAcceleration[index],
-    Speed: fixedSpeed[index] * 100,
-  }));
 
-  console.log(HeartRateData[HeartRateData.length-1].HeartRate);
+  // const HeartRateData = fixedTimeDate.map((time, index) => ({
+  //   time: time,
+  //   HeartRate: fixedHeartRate[index],
+  // }));
+
   
+  const TotalAccelerationData = fixedTimeDate.map((time, index) => ({
+    time: time,
+    TotalAcceleration: fixedTotalAcceleration[index],
+  }));
+  const totalGyroscopeData = fixedTimeDate.map((time, index) => ({
+    time: time,
+    totalGyroscope: fixedtotalGyroscope[index] +7.5,
+  }));
+  const stepCountData = fixedTimeDate.map((time, index) => ({
+    time: time,
+    stepCount: fixedstepCount[index] ,
+  }));
+  const fallCodeData = fixedTimeDate.map((time, index) => ({
+    time: time,
+    fallCode: fixedfallCode[index] ,
+  }));
+  const HeartBeatAvgerageData = fixedTimeDate.map((time, index) => ({
+    time: time,
+    HeartBeatAvgerage: fixedHeartBeatAvgerage[index] ,
+  }));
+
   return (
     <div class="dashboard_table">
       <div className="dashboard-container">
-        <div className="chart-item">
+        {/* <div className="chart-item">
           <h3>Heart Rate</h3>
           <LineChart width={600} height={450} data={HeartRateData}>
             <XAxis dataKey="time" />
@@ -96,10 +85,15 @@ const DashboardCharts = () => {
               BPM: {HeartRateData[HeartRateData.length - 1].HeartRate}
             </span>
           </div>
-        </div>
+        </div> */}
+
+
+
+
+
         <div className="chart-item">
-          <h3>Temperature</h3>
-          <LineChart width={600} height={450} data={TemperatureData}>
+          <h3>totalGyroscope</h3>
+          <LineChart width={600} height={450} data={totalGyroscopeData}>
             <XAxis dataKey="time" />
             <YAxis type="number" domain={[0, 47]} />
             <CartesianGrid strokeDasharray="3 3" />
@@ -107,42 +101,48 @@ const DashboardCharts = () => {
             <Legend />
             <Line
               type="monotone"
-              dataKey="Temperature"
+              dataKey="totalGyroscopeData"
               stroke="#82ca9d"
               fill="#82ca9d"
             />
           </LineChart>
           <div className="digital-reading">
             <span>
-              Temp: {TemperatureData[TemperatureData.length - 1].Temperature} °C
+              totalGyroscope: {totalGyroscopeData.totalGyroscope} 
             </span>
           </div>
         </div>
-        <div className="chart-item">
-          <h3>Blood Oxygen</h3>
-          <LineChart width={600} height={450} data={BloodOxygenData}>
-            <XAxis dataKey="time" />
-            <YAxis type="number" domain={[85, 100]} />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Tooltip />
-            <Legend />
-            <Line
-              type="monotone"
-              dataKey="BloodOxygen"
-              stroke="#ff7979"
-              fill="#ff7979"
-            />
-          </LineChart>
-          <div className="digital-reading">
-            <span>
-              BloodOxygen:{" "}
-              {BloodOxygenData[BloodOxygenData.length - 1].BloodOxygen} %
-            </span>
-          </div>
+
+
+
+      <div className="chart-item">
+        <h3>Acceleration</h3>
+        <LineChart width={600} height={450} data={TotalAccelerationData}>
+          <XAxis dataKey="time" />
+          <YAxis type="number" domain={[85, 100]} />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="Acceleration"
+            stroke="#ff7979"
+            fill="#ff7979"
+          />
+        </LineChart>
+        <div className="digital-reading">
+          <span>
+            Acceleration:{" "}
+            {TotalAccelerationData[TotalAccelerationData.length - 1].TotalAcceleration} 
+          </span>
         </div>
+      </div> 
+
+
+
         <div className="chart-item">
           <h3>Sweat</h3>
-          <LineChart width={600} height={450} data={SweatData}>
+          <LineChart width={600} height={450} data={stepCountData}>
             <XAxis dataKey="Sweat" />
             <YAxis type="number" domain={[15, 70]} />
             <CartesianGrid strokeDasharray="3 3" />
@@ -150,18 +150,21 @@ const DashboardCharts = () => {
             <Legend />
             <Line
               type="monotone"
-              dataKey="Sweat"
+              dataKey="stepCount"
               stroke="#ffc658"
               fill="#ffc658"
             />
           </LineChart>
           <div className="digital-reading">
-            <span>Sweat: {SweatData[SweatData.length - 1].Sweat} %</span>
+            <span>Sweat: {stepCountData[stepCountData.length - 1].stepCount} %</span>
           </div>
         </div>
+
+
+
         <div className="chart-item">
-          <h3>Speed</h3>
-          <LineChart width={600} height={450} data={SpeedData}>
+          <h3>fallCod</h3>
+          <LineChart width={600} height={450} data={fallCodeData}>
             <XAxis dataKey="time" />
             <YAxis type="number" domain={[0, 2]} />
             <CartesianGrid strokeDasharray="3 3" />
@@ -169,18 +172,21 @@ const DashboardCharts = () => {
             <Legend />
             <Line
               type="monotone"
-              dataKey="Speed"
+              dataKey="fallCode"
               stroke="#ff7979"
               fill="#ff7979"
             />
           </LineChart>
           <div className="digital-reading">
-            <span>Speed: {SpeedData[SpeedData.length - 1].Speed} m/s</span>
+            <span>fallCode: {fallCodeData[fallCodeData.length - 1].fallCode} </span>
           </div>
         </div>
+
+
+
         <div className="chart-item">
-          <h3>Accelerometer</h3>
-          <LineChart width={600} height={450} data={AccelerometerData}>
+          <h3>HeartBeatAvgerage</h3>
+          <LineChart width={600} height={450} data={HeartBeatAvgerageData}>
             <XAxis dataKey="time" />
             <YAxis type="number" domain={[0, 1]} />
             <CartesianGrid strokeDasharray="3 3" />
@@ -188,20 +194,20 @@ const DashboardCharts = () => {
             <Legend />
             <Line
               type="monotone"
-              dataKey="Accelerometer"
+              dataKey="HeartBeatAvgerage"
               stroke="#e056fd"
               fill="#e056fd"
             />
           </LineChart>
           <div className="digital-reading">
             <span>
-              Accelerometer:{" "}
-              {AccelerometerData[AccelerometerData.length - 1].Accelerometer}
+              HeartBeatAvgerage:{" "}
+              {HeartBeatAvgerageData[HeartBeatAvgerageData.length - 1].HeartBeatAvgerage}
               m/s²
             </span>
           </div>
         </div>
-        <div className="chart-item">
+        {/* <div className="chart-item">
           <h3>Heart Rate vs Blood Oxygen vs Temperature</h3>
           <LineChart
             width={600}
@@ -239,8 +245,8 @@ const DashboardCharts = () => {
               fill="#82ca9d"
             />
           </LineChart>
-        </div>
-        <div className="chart-item">
+        </div> */}
+        {/* <div className="chart-item">
           <h3>Speed vs Accelerometer</h3>
           <LineChart
             width={600}
@@ -272,7 +278,7 @@ const DashboardCharts = () => {
               fill="#e056fd"
             />
           </LineChart>
-        </div>
+        </div> */}
       </div>
 
       <div className="api-data-container ">

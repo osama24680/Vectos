@@ -23,7 +23,7 @@ export default function HeaderStyle2({ logoSrc, variant, btnText, btnUrl }) {
   return (
     <>
       <header
-        className={`cs_site_header cs_style1 cs_sticky_header ${
+        className={`cs_site_header cs_style1 cs_sticky_header navbarHeader${
           mobileToggle ? 'cs_mobile_toggle_active' : ''
         } ${variant} ${isSticky ? 'cs_active_sticky' : ''}`}
       >

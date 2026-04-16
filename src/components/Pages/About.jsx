@@ -25,12 +25,12 @@ export default function About() {
       <BannerSectionStyle3
         bgUrl="/images/about/banner_bg.svg"
         imgUrl="/images/about/banner_img.png"
-        title="Welcome to <br />Vectos Medical & Healthcare Center"
-        subTitle="Your Partner in Health and Wellness through Innovative Technology."
+        title="About Vectos <br />An AI health technology startup building wearable systems for early risk monitoring through embedded sensing, movement analysis, and intelligent pattern detection."
+        subTitle="Built at the intersection of wearable hardware, AI modeling, and real-world health insight."
       />
       <Section topMd={200} topLg={150} topXl={110}>
         <DepartmentSectionStyle2
-          sectionTitle="The Intelligence Inside Vectos"
+          sectionTitle="PLATFORM CAPABILITIES"
           sectionTitleUp="SERVICES"
           data={departmentData}
         />
@@ -38,8 +38,8 @@ export default function About() {
 
       <Section topMd={190} topLg={145} topXl={105}>
         <TeamSection
-          sectionTitle="Experts Team"
-          sectionTitleUp="MEET OUR"
+          sectionTitle="The Team Behind Vectos"
+          sectionTitleUp="MEET "
           data={teamData}
         />
       </Section>
@@ -54,9 +54,9 @@ export default function About() {
         bottomXl={110}
       >
         <AwardSectionStyle2
-          sectionTitle="Winning Awards and <br />Recognition"
+          sectionTitle="Validation <br />Recognition"
           sectionTitleUp="AWARDS"
-          sectionSubTitle="We have been recognized for our commitment to <br />excellence in healthcare."
+          sectionSubTitle="Early recognition for the vision, feasibility, and innovation behind Vectos.."
           data={awardData}
         />
       </Section>

@@ -2,7 +2,7 @@ import React from 'react';
 import Spacing from '../../Spacing';
 import SectionHeading from '../../SectionHeading';
 import Team from '../../Team';
-
+import "./style.css"
 export default function TeamSection({ sectionTitle, sectionTitleUp, data }) {
   return (
     <div className="container">

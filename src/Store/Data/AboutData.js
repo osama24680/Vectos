@@ -79,28 +79,11 @@ export const funFactData = [
 
 export const teamData = [
   {
-    imgUrl: "images/about/yasmine.png",
-    name: "Dr. Yasmine Mokhtar",
-    designation: "Lecturer at the Faculty of Fine Arts, Alexandria University",
-    description:
-      "Founder and Lead Researcher of Vectos.",
-    social: [
-      {
-        icon: "fa6-brands:linkedin-in",
-        href: "https://www.linkedin.com/in/yasmine-mokhtar-phd/",
-      },
-      {
-        icon: "fa6-brands:facebook-f",
-        href: "https://www.facebook.com/gasmin.arts",
-      },
-    ],
-  },
-  {
     imgUrl: "images/about/osama.png",
     name: "Eng. Osama Megahed",
     designation: "EC Engineer",
     description:
-      "Co-Founder and Lead Engineer of Vectos.",
+      "Founder and Lead Engineer of Vectos.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -112,6 +95,24 @@ export const teamData = [
       },
     ],
   },
+  {
+    imgUrl: "images/about/yasmine.png",
+    name: "Dr. Yasmine Mokhtar",
+    designation: "Lecturer at the Faculty of Fine Arts, Alexandria University",
+    description:
+      "Co-Founder and Lead Researcher of Vectos.",
+    social: [
+      {
+        icon: "fa6-brands:linkedin-in",
+        href: "https://www.linkedin.com/in/yasmine-mokhtar-phd/",
+      },
+      {
+        icon: "fa6-brands:facebook-f",
+        href: "https://www.facebook.com/gasmin.arts",
+      },
+    ],
+  },
+
   {
     imgUrl: "images/about/ebraheem.png",
     name: "Eng. Ebraheem Ragab",

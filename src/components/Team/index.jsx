@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import "./style.css"
 export default function Team({
   imgUrl,
   name,
@@ -10,8 +10,8 @@ export default function Team({
   social,
 }) {
   return (
-    <div className="cs_team cs_style_1 text-center cs_radius_20 cs_type_1">
-      <div className="cs_member_img">
+    <div className="cs_team cs_style_1 text-center cs_radius_20 cs_type_1 ">
+      <div className="cs_member_img team-card-image">
         <img src={imgUrl} alt={name} />
       </div>
       <div className="cs_team_meta">

@@ -1,8 +1,8 @@
 import React from 'react';
-import parse from 'html-react-parser';
-import Button from '../../Button';
-import Spacing from '../../Spacing';
-
+// import parse from 'html-react-parser';
+// import Button from '../../Button';
+// import Spacing from '../../Spacing';
+import "./style.css"
 export default function BannerSectionStyle3({
   bgUrl,
   imgUrl,
@@ -13,15 +13,15 @@ export default function BannerSectionStyle3({
 }) {
   return (
     <section
-      className="cs_banner cs_style_3 cs_bg_filed"
-      style={{ backgroundImage: `url(${bgUrl})` }}
+      className="cs_banner cs_style_3 cs_bg_filed about-hero "
+      style={{ backgroundImage: `url(${imgUrl})` }}
     >
-      <div className="cs_banner_img">
+      {/* <div className="cs_banner_img">
         <img src={imgUrl} alt="Banner" className="cs_main_banner_img" />
-      </div>
-      <div className="container">
-        <div className="cs_banner_text">
-          <h2 className="cs_banner_title cs_fs_72">{parse(title)}</h2>
+      </div> */}
+      {/* <div className="container">
+        <div className="cs_banner_text about-hero-content ">
+          <h2 className="cs_banner_title cs_fs_72 about_title">{parse(title)}</h2>
           <p className="cs_banner_subtitle cs_fs_20 mb-0 cs_heading_color">
             {parse(subTitle)}
           </p>
@@ -32,7 +32,7 @@ export default function BannerSectionStyle3({
             </>
           )}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

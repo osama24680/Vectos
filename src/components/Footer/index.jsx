@@ -73,7 +73,7 @@ Designed for continuous physiological insight." />
           <div className="cs_footer_bottom_in">
             <SocialWidget />
             <div className="cs_copyright">
-              Copyright © 2024 Vectos Health. All rights reserved.
+              Copyright © 2026 Vectos. All rights reserved.
             </div>
           </div>
         </div>

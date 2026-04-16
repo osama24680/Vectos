@@ -29,6 +29,41 @@
     pointer-events: none;
 }
 
+.about-hero {
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+    background-position: center center;
+    /* background-position: center 30%; */
+    /* min-height: 940px !important; */
+    height: 100vh;
+    /* padding: 120px 0 90px; */
+}
+
+.about-hero-content {
+    background: rgba(16, 27, 42, 0.52);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 20px;
+    max-width: 650px;
+    box-shadow: 0 8px 30px rgba(16, 27, 42, 0.12);
+}
+
+/* .about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(16, 27, 42, 0.72) 0%,
+            rgba(16, 27, 42, 0.58) 35%,
+            rgba(16, 27, 42, 0.28) 65%,
+            rgba(16, 27, 42, 0.18) 100%);
+    z-index: 1;
+} */
+
+
 /* content */
 .vectos_banner_content {
     position: relative;
@@ -44,11 +79,17 @@
     margin-bottom: 18px;
 }
 
+.about_title {
+    font-size: 30px !important;
+    color: #F8FBFF;
+}
+
 /* subtitle */
 .vectos_banner_subtitle {
     font-size: 17px !important;
     line-height: 1.7;
-    color: rgba(20, 50, 80, 0.7) !important;
+    /* color: rgba(20, 50, 80, 0.7) !important; */
+    color: rgba(248, 251, 255, 0.88) !important;
 }
 
 /* image */
