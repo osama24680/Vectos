@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Form.css";
 import { AuthContext } from "../../AuthContext";
+import { createSalt, hashPassword, verifyPassword } from "../../helpers/password";
 
 const From = () => {
   const { login } = useContext(AuthContext);
@@ -54,17 +55,24 @@ const From = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
+    const email = formData.email.trim().toLowerCase();
 
     if (isLogin) {
-      const user = users.find(
-        (u) => u.email === formData.email && u.password === formData.password
-      );
+      const user = users.find((u) => u.email.toLowerCase() === email);
+      const valid = user && (await verifyPassword(user, formData.password));
 
-      if (user) {
+      if (valid) {
+        // upgrade an account saved before hashing: drop its plain-text password
+        if (!user.hash) {
+          user.salt = createSalt();
+          user.hash = await hashPassword(formData.password, user.salt);
+          delete user.password;
+          localStorage.setItem("users", JSON.stringify(users));
+        }
         login(user);
         toast.success(`Login successful! Welcome, ${user.name}.`);
         navigate("/dashboard"); // Redirect to dashboard
@@ -87,7 +95,7 @@ const From = () => {
         return;
       }
 
-      const emailExists = users.some((u) => u.email === formData.email);
+      const emailExists = users.some((u) => u.email.toLowerCase() === email);
       const idExists = users.some((u) => u.id === formData.id);
 
       if (emailExists) {
@@ -100,11 +108,13 @@ const From = () => {
         return;
       }
 
+      const salt = createSalt();
       const newUser = {
-        name: formData.name,
+        name: formData.name.trim(),
         id: formData.id,
-        email: formData.email,
-        password: formData.password,
+        email,
+        salt,
+        hash: await hashPassword(formData.password, salt),
       };
 
       users.push(newUser);

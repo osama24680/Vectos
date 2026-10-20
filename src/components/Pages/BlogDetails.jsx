@@ -100,7 +100,7 @@ export default function BlogDetails() {
         <BannerSectionStyle9
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
-          imgUrl="/images/footer/backSeat.png"
+          imgUrl="/images/footer/backSeat.jpg"
         />
       </Section> */}
     </>

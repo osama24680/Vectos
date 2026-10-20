@@ -6,6 +6,15 @@ import * as HomeData from "./Data/HomeData.js";
 import * as AboutData from "./Data/AboutData.js";
 import { BlogDetails } from "./Data/BlogDetails.js";
 
+// keys come from .env.local (see .env.example) so they stay out of the repository
+const THINGSPEAK_CHANNEL = process.env.REACT_APP_THINGSPEAK_CHANNEL_ID;
+const THINGSPEAK_READ_KEY = process.env.REACT_APP_THINGSPEAK_READ_KEY;
+const THINGSPEAK_RESULTS = process.env.REACT_APP_THINGSPEAK_RESULTS || 2;
+const EMAILJS_SERVICE = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+const EMAILJS_TEMPLATE_BLOG = process.env.REACT_APP_EMAILJS_TEMPLATE_BLOG;
+const EMAILJS_TEMPLATE_CONTACT = process.env.REACT_APP_EMAILJS_TEMPLATE_CONTACT;
+
 export const shoesStore = createContext(0);
 export const ShoesProvider = (props) => {
   const [thingSpeakData, setThingSpeakData] = useState(null);
@@ -13,12 +22,15 @@ export const ShoesProvider = (props) => {
   const [thingSpeakLoading, setThingSpeakLoading] = useState(false);
 
   const fetchData = async () => {
+    if (!THINGSPEAK_CHANNEL || !THINGSPEAK_READ_KEY) {
+      setThingSpeakError("Sensor feed isn't configured (missing ThingSpeak keys).");
+      return;
+    }
     setThingSpeakLoading(true);
     try {
       const response = await fetch(
-        "https://api.thingspeak.com/channels/3313629/feeds.json?api_key=HZ20M3PJ2QG1ZNUL&results=2"
+        `https://api.thingspeak.com/channels/${THINGSPEAK_CHANNEL}/feeds.json?api_key=${THINGSPEAK_READ_KEY}&results=${THINGSPEAK_RESULTS}`
       );
-
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -30,7 +42,6 @@ export const ShoesProvider = (props) => {
       );
 
       setThingSpeakData({ ...result, feeds: sortedFeeds });
-      console.log("results:", result.feeds);
     } catch (err) {
       setThingSpeakError(err.message);
     } finally {
@@ -88,20 +99,15 @@ export const ShoesProvider = (props) => {
     e.preventDefault();
 
     emailjs
-      .sendForm(
-        "service_9g6qdal",
-        "template_v0n291c",
-        form_BlgDetails.current,
-        {
-          publicKey: "bspO51pH8GUc-Sz6o",
-        }
-      )
+      .sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE_BLOG, form_BlgDetails.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      })
       .then(
         () => {
           toast.success("Message sent successfully!", {});
         },
         (error) => {
-          console.log("error", error.text);
+          console.error("EmailJS error:", error.text);
           toast.error("Something wrong happened!");
         }
       );
@@ -111,15 +117,15 @@ export const ShoesProvider = (props) => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_9g6qdal", "template_1lr3tfj", form_Contact.current, {
-        publicKey: "bspO51pH8GUc-Sz6o",
+      .sendForm(EMAILJS_SERVICE, EMAILJS_TEMPLATE_CONTACT, form_Contact.current, {
+        publicKey: EMAILJS_PUBLIC_KEY,
       })
       .then(
         () => {
           toast.success("Message sent successfully!", {});
         },
         (error) => {
-          console.log("error", error.text);
+          console.error("EmailJS error:", error.text);
           toast.error("Something wrong happened!");
         }
       );

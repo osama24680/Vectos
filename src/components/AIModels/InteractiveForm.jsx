@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./InteractiveForm.css";
 
-
+// base URL of the Flask models API, e.g. http://127.0.0.1:5000 locally (see .env.example)
+const ML_API_URL = (process.env.REACT_APP_ML_API_URL || "").replace(/\/$/, "");
 
 const InteractiveForm = () => {
   const [selectedModel, setSelectedModel] = useState("calories");
@@ -37,102 +38,97 @@ const InteractiveForm = () => {
 
   const [prediction, setPrediction] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const SubjnumConstant = 5;
-  const handlePredict = async () => {
-    if (selectedModel === "calories") {
-      console.log("osama => calories");
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:5000/predictCalories",
-          {
-            calories_age: Number(calories_age),
-            calories_duration: Number(calories_duration),
-            calories_temperature: Number(calories_temperature),
-            calories_heart_rate: Number(calories_heart_rate),
-          }
-        );
-        setPrediction(response.data.calories);
-      } catch (error) {
-        console.error("Prediction Error:", error);
-      }
-    } else if (selectedModel === "stress") {
-      console.log("osama => stress");
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:5000/predictStress",
-          {
-            Humidity: Number(Humidity),
-            Temperature_C: Number(Temperature_C),
-            Step_count: Number(Step_count),
-          }
-        );
-        setPrediction(response.data.stress);
-      } catch (error) {
-        console.error(
-          "Prediction Error:",
-          error.response?.data || error.message
-        );
-        setPrediction("Error: Unable to predict stress level.");
-      }
-    } else if (selectedModel === "parkinson") {
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:5000/predictParkinson",
-          {
-            Subjnum: Number(SubjnumConstant),
-            Age: Number(Age),
-            Height_meters: Number(Height_meters),
-            Weight_kg: Number(Weight_kg),
-            HoehnYahr: Number(HoehnYahr),
-            UPDRSM: Number(UPDRSM),
-            TUAG: Number(TUAG),
-            Speed_01_msec: Number(Speed_01_msec),
-            Speed_10: Number(Speed_10),
-          }
-        );
-        setPrediction(response.data.parkinson);
-        console.log(response.data);
-      } catch (error) {
-        console.error("Prediction Error:", error);
-      }
-    } else if (selectedModel === "sleepStress") {
-   try {
-     const response = await axios.post("http://127.0.0.1:5000/sleepStress", {
-       age: Number(SS_Age),
-       heart_rate: Number(SS_HeartRate),
-       sleep_duration: Number(SS_Sleep_Duration),
-       systole: Number(SS_Systole),
-       diastole: Number(SS_Diastole),
-     });
-     if (response.data.predicted_sleep && response.data.predicted_stress) {
-       setPrediction({
-         sleep: response.data.predicted_sleep,
-         stress: response.data.predicted_stress,
-       });
-       console.log("Predictions:", response.data);
-     } else {
-       console.error("Invalid response:", response.data);
-     }
-   } catch (error) {
-     if (error.response && error.response.data) {
-       console.error("Prediction Error:", error.response.data.error);
-     } else {
-       console.error("Unknown Error:", error);
-     }
-   }
 
-
-    }
+  // each model: its Flask endpoint, the payload it expects, and how to read the answer
+  const requests = {
+    calories: () => ({
+      path: "/predictCalories",
+      body: {
+        calories_age: Number(calories_age),
+        calories_duration: Number(calories_duration),
+        calories_temperature: Number(calories_temperature),
+        calories_heart_rate: Number(calories_heart_rate),
+      },
+      read: (data) => data.calories,
+    }),
+    stress: () => ({
+      path: "/predictStress",
+      body: {
+        Humidity: Number(Humidity),
+        Temperature_C: Number(Temperature_C),
+        Step_count: Number(Step_count),
+      },
+      read: (data) => data.stress,
+    }),
+    parkinson: () => ({
+      path: "/predictParkinson",
+      body: {
+        Subjnum: Number(SubjnumConstant),
+        Age: Number(Age),
+        Height_meters: Number(Height_meters),
+        Weight_kg: Number(Weight_kg),
+        HoehnYahr: Number(HoehnYahr),
+        UPDRSM: Number(UPDRSM),
+        TUAG: Number(TUAG),
+        Speed_01_msec: Number(Speed_01_msec),
+        Speed_10: Number(Speed_10),
+      },
+      read: (data) => data.parkinson,
+    }),
+    sleepStress: () => ({
+      path: "/sleepStress",
+      body: {
+        age: Number(SS_Age),
+        heart_rate: Number(SS_HeartRate),
+        sleep_duration: Number(SS_Sleep_Duration),
+        systole: Number(SS_Systole),
+        diastole: Number(SS_Diastole),
+      },
+      read: (data) =>
+        data.predicted_sleep != null && data.predicted_stress != null
+          ? { sleep: data.predicted_sleep, stress: data.predicted_stress }
+          : undefined,
+    }),
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setPrediction(null);
+    setError("");
 
-    console.log("submit function triggered");
+    if (!ML_API_URL) {
+      setError(
+        "The AI service isn't connected in this deployment yet. Run the Flask models locally and set REACT_APP_ML_API_URL to try them."
+      );
+      return;
+    }
+
+    const { path, body, read } = requests[selectedModel]();
+    setLoading(true);
+    try {
+      const response = await axios.post(`${ML_API_URL}${path}`, body, { timeout: 15000 });
+      const result = read(response.data);
+      if (result === undefined) throw new Error("Unexpected response from the model.");
+      setPrediction(result);
+    } catch (err) {
+      setError(
+        err.response?.data?.error ||
+          (err.request && !err.response
+            ? "Couldn't reach the AI service — it may be offline. Please try again later."
+            : err.message)
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     setPrediction(null);
+    setError("");
   }, [selectedModel]);
 
   const renderInputs = () => {
@@ -377,12 +373,19 @@ const InteractiveForm = () => {
         </div>
         {renderInputs()}
         <div className="submit-container">
-          <button type="submit" onClick={handlePredict} className="submit-btn ">
-            Submit
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Predicting..." : "Submit"}
           </button>
         </div>
       </form>
-      {prediction && (
+      {error && (
+        <div className="output-container">
+          <div className="output-box output-error" role="alert">
+            <p>⚠️ {error}</p>
+          </div>
+        </div>
+      )}
+      {prediction !== null && (
         <div className="output-container">
           <div className="output-box">
             {selectedModel === "calories" && (
@@ -396,12 +399,8 @@ const InteractiveForm = () => {
             )}
             {selectedModel === "sleepStress" && (
               <>
-                {/* <p>💤Quality of Sleep :</p> */}
-                <p>💤Quality of Sleep : {prediction?.sleep}</p>
-                <p>🧘Stress Level: {prediction?.stress}</p>
-                {console.log(prediction.sleep)}
-                {/* {console.log("prediction[0][0]", prediction[0]?.[0])} */}
-                {/* {console.log("prediction[0][1]", prediction[0][1])} */}
+                <p>💤 Quality of Sleep: {prediction?.sleep}</p>
+                <p>🧘 Stress Level: {prediction?.stress}</p>
               </>
             )}
           </div>

@@ -8,7 +8,6 @@ export default function Post({
   thumbUrl,
   date,
   btnText,
-  href,
   socialShare,
   variant,
   idBlogPost
@@ -54,7 +53,7 @@ export default function Post({
         </div>
         {btnText && (
           <div className="cs_heading_color cs_medium">
-            <Link to={href} className="cs_post_btn">
+            <Link to={`/blog/${idBlogPost}`} className="cs_post_btn">
               {btnText}
             </Link>
           </div>

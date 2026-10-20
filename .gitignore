@@ -1,3 +1,16 @@
+# dependencies
 node_modules
-git init
+
+# production build
+build
+
+# local env files (real keys live here — see .env.example)
+.env
+.env.local
+.env.*.local
+
+# OS / editor
+.DS_Store
+
+# large demo video kept out of the repo
 public/images/home_1/60s.mp4

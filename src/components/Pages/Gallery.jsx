@@ -20,7 +20,7 @@ export default function Gallery() {
     <>
       <BannerSectionStyle3
         bgUrl="/images/about/banner_bg.svg"
-        imgUrl="/images/about/banner_img.png"
+        imgUrl="/images/about/banner_img.jpg"
         title="Welcome to <br>Vectos Gallery"
         subTitle="The special moment of our system"
       />
@@ -38,7 +38,7 @@ export default function Gallery() {
         <BannerSectionStyle9
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
-          imgUrl="images/footer/backSeat.png"
+          imgUrl="/images/footer/backSeat.jpg"
         />
       </Section> */}
     </>

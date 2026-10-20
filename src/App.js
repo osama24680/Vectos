@@ -7,7 +7,6 @@ import Blog from "./components/Pages/Blog.jsx";
 import BlogDetails from "./components/Pages/BlogDetails.jsx";
 import Gallery from "./components/Pages/Gallery.jsx";
 import Models from "./components/Pages/AIModels.jsx";
-import ModelDetails from "./components/Pages/ModelDetails.jsx";
 import Dashboard from "./components/Pages/Dashboard.jsx";
 import Contact from "./components/Pages/Contact.jsx";
 import Register from "./components/Pages/Register.jsx";
@@ -59,14 +58,6 @@ function App() {
             element={
               <PrivateRoute>
                 <Models />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="models/:modelId"
-            element={
-              <PrivateRoute>
-                <ModelDetails />
               </PrivateRoute>
             }
           />

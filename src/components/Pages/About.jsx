@@ -24,7 +24,7 @@ export default function About() {
     <>
       <BannerSectionStyle3
         bgUrl="/images/about/banner_bg.svg"
-        imgUrl="/images/about/banner_img.png"
+        imgUrl="/images/about/banner_img.jpg"
         title="About Vectos <br />An AI health technology startup building wearable systems for early risk monitoring through embedded sensing, movement analysis, and intelligent pattern detection."
         subTitle="Built at the intersection of wearable hardware, AI modeling, and real-world health insight."
       />
@@ -63,7 +63,7 @@ export default function About() {
 
       {/* <Section className="cs_footer_margin_0">
         <BannerSectionStyle9
-          imgUrl="images/footer/backSeat.png"
+          imgUrl="/images/footer/backSeat.jpg"
           title="Don’t Let Your Health <br />Take a Backseat!"
           subTitle="Schedule an appointment with one of our experienced <br />medical professionals today!"
         />

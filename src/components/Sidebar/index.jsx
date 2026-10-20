@@ -16,46 +16,12 @@ import NewsletterStyle5 from "../Widget/NewsletterStyle5";
 //     url: "/",
 //   },
 // ];
-const recentPostData = [
-  {
-    title: `A Parent's Guide to Childhood Vaccinations: What You Need to Know`,
-    author: "James Brown",
-    date: "August 10, 2023",
-    href: "/blog/blog-details",
-  },
-  {
-    title: `Preventing Heart Disease: Tips for a Heart-Healthy Lifestyle`,
-    author: "James Brown",
-    date: "August 09, 2022",
-    href: "/blog/blog-details",
-  },
-  {
-    title: `Managing Chronic Pain: Treatment Options and Strategies`,
-    author: "James Brown",
-    date: "August 08, 2022",
-    href: "/blog/blog-details",
-  },
-  {
-    title: `The Role of Physical Therapy in Injury Recovery and Prevention`,
-    author: "James Brown",
-    date: "August 07, 2022",
-    href: "/blog/blog-details",
-  },
-  {
-    title: `Allergies and Asthma: Causes, Symptoms, and Treatment Options`,
-    author: "James Brown",
-    date: "August 10, 2023",
-    href: "/blog/blog-details",
-  },
-];
-
 export default function Sidebar({ articlesData }) {
   return (
     <div className="cs_sidebar">
       <div className="cs_sidebar_item">
         <RecentPostWidget
           title="Popular Articles"
-          data={recentPostData}
           articlesData={articlesData}
         />
       </div>

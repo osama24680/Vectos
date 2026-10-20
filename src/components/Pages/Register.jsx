@@ -9,13 +9,13 @@ import { pageTitle } from "../../helpers/PageTitle.js";
 export default function Register() {
  
 
-  pageTitle("Blog")
+  pageTitle("Login / Register");
   return (
     <>
       <Section className="cs_footer_margin_0">
         <BannerSectionStyle3
           bgUrl="/images/about/banner_bg.svg"
-          imgUrl="/images/about/banner_img.png"
+          imgUrl="/images/about/banner_img.jpg"
           title="Explore the Power of AI with Vectos"
           subTitle="Revolutionizing health and wellness through advanced machine learning."
         />

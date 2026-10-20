@@ -44,25 +44,25 @@ export const featureListData = [
     title: "Pioneering Health Monitoring Technology",
     subTitle:
       "Our smart shoes are more than just footwear; they’re a comprehensive health tool designed to monitor, analyze, and alert you to potential health issues.",
-    iconUrl: "images/icons/professional.svg",
+    iconUrl: "/images/icons/professional.svg",
   },
   {
     title: "Data-Driven Personal Health Insights",
     subTitle:
       "By integrating AI and machine learning, we provide personalized recommendations based on your unique health data.",
-    iconUrl: "images/icons/comprehensive.svg",
+    iconUrl: "/images/icons/comprehensive.svg",
   },
   {
     title: "Proactive Health Approach",
     subTitle:
       "Vectos is designed to help detect issues early, enabling timely intervention and preventive care, particularly for heart-related and neurological conditions.",
-    iconUrl: "images/icons/patient.svg",
+    iconUrl: "/images/icons/patient.svg",
   },
   {
     title: "Affordable, Accessible Healthcare",
     subTitle:
       "Our smart shoes bring advanced healthcare technology to a broader audience, making continuous health monitoring accessible and affordable.",
-    iconUrl: "images/icons/facilities.svg",
+    iconUrl: "/images/icons/facilities.svg",
   },
 ];
 
@@ -79,7 +79,7 @@ export const funFactData = [
 
 export const teamData = [
   {
-    imgUrl: "images/about/osama.png",
+    imgUrl: "/images/about/osama.jpg",
     name: "Eng. Osama Megahed",
     designation: "EC Engineer",
     description:
@@ -96,7 +96,7 @@ export const teamData = [
     ],
   },
   {
-    imgUrl: "images/about/yasmine.png",
+    imgUrl: "/images/about/yasmine.jpg",
     name: "Dr. Yasmine Mokhtar",
     designation: "Lecturer at the Faculty of Fine Arts, Alexandria University",
     description:
@@ -114,7 +114,7 @@ export const teamData = [
   },
 
   {
-    imgUrl: "images/about/ebraheem.png",
+    imgUrl: "/images/about/ebraheem.jpg",
     name: "Eng. Ebraheem Ragab",
     designation: "Computer Engineer",
     description:
@@ -131,7 +131,7 @@ export const teamData = [
     ],
   },
   {
-    imgUrl: "images/about/mayar.png",
+    imgUrl: "/images/about/mayar.jpg",
     name: "Eng. Mayar Magdy",
     designation: "EC Engineer",
     description:
@@ -148,7 +148,7 @@ export const teamData = [
     ],
   },
   {
-    imgUrl: "images/about/hesham.png",
+    imgUrl: "/images/about/hesham.jpg",
     name: "Eng. Ahmed Hesham",
     designation: "Computer Engineer",
     description:

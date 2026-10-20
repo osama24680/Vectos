@@ -24,7 +24,7 @@ export default function Home() {
       title = "Detect <span>risks</span> <br/> before symptoms appear."
         subTitle="Vectos combines physiological sensing and movement data to identify early changes and deliver timely, actionable risk insights."
         // bgUrl="/images/home_1/hero_bg.jpeg"
-        imgUrl="images/home_1/hero_img.png"
+        imgUrl="/images/home_1/hero_img.png"
         videoBtnText="See Vectos in action"
         videoUrl="/images/home_1/60s.mp4"
         infoList={[
@@ -44,8 +44,8 @@ export default function Home() {
             iconUrl: "/images/icons/pin.svg",
           },
         ]}
-        btnText="Book Now"
-        btnUrl="/appointments"
+        btnText="Get Started"
+        btnUrl="/register"
       />
       {/* Feature Section */}
       <Section
@@ -95,8 +95,8 @@ export default function Home() {
       {/* Banner Section */}
       <Section>
         <Banner
-          bgUrl="images/home_1/cta_bg.svg"
-          imgUrl="images/home_1/cta_img.png"
+          bgUrl="/images/home_1/cta_bg.svg"
+          imgUrl="/images/home_1/cta_img.jpg"
           title="Built for Real-World Monitoring."
           subTitle="Designed for movement, daily life, and continuous monitoring outside controlled environments."
         />

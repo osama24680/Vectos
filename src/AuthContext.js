@@ -1,28 +1,31 @@
 // AuthContext.js
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
+import { publicProfile } from "./helpers/password";
 
 export const AuthContext = createContext();
 
+// read the session synchronously so a refresh on a protected page
+// doesn't bounce the user to "/" before the session is restored
+const readStoredUser = () => {
+  try {
+    const stored = JSON.parse(localStorage.getItem("loggedInUser"));
+    return stored ? publicProfile(stored) : null;
+  } catch {
+    return null;
+  }
+};
+
 const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(readStoredUser);
+  const isAuthenticated = Boolean(user);
 
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (storedUser) {
-      setIsAuthenticated(true);
-      setUser(storedUser);
-    }
-  }, []);
-
-  const login = (user) => {
-    setIsAuthenticated(true);
-    setUser(user);
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
+  const login = (account) => {
+    const profile = publicProfile(account);
+    setUser(profile);
+    localStorage.setItem("loggedInUser", JSON.stringify(profile));
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
     setUser(null);
     localStorage.removeItem("loggedInUser");
   };

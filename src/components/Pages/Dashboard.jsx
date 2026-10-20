@@ -2,12 +2,14 @@ import React from 'react'
 import BannerSectionStyle3 from "../Section/BannerSection/BannerSectionStyle3";
 import DashboardCharts from '../Dashboard/DashboardCharts.jsx';
 import Spacing from '../Spacing/index.jsx';
+import { pageTitle } from "../../helpers/PageTitle";
 const Dashboard = () => {
+  pageTitle("Dashboard");
   return (
     <>
       <BannerSectionStyle3
         bgUrl="/images/about/banner_bg.svg"
-        imgUrl="/images/about/banner_img.png"
+        imgUrl="/images/about/banner_img.jpg"
         title="Explore the Power of AI with Vectos"
         subTitle="Revolutionizing health and wellness through advanced machine learning."
       />
