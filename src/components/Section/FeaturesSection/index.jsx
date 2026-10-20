@@ -1,31 +1,31 @@
-import React from 'react';
-import SectionHeading from '../../SectionHeading';
-import Spacing from '../../Spacing';
-import Feature from '../../Feature';
-import './style.css';
+import React from "react";
+import "./style.css";
 
-export default function FeaturesSection({ sectionTitle, data }) {
+export default function FeaturesSection({ sectionTitle, sectionSubtitle, data }) {
   return (
-    <div className="cs_shape_wrap vectos_features_section">
-      <div className="cs_shape_1 vectos_features_bg" />
-
+    <section className="vx_features">
       <div className="container">
-        <SectionHeading title={sectionTitle} center />
-        <Spacing md="72" lg="50" />
+        <div className="vx_section_head">
+          <span className="vx_eyebrow">How it works</span>
+          <h2>{sectionTitle}</h2>
+          {sectionSubtitle && <p>{sectionSubtitle}</p>}
+        </div>
 
-        <div className="cs_random_features vectos_features_grid">
-          {data?.map((item, index) => (
-            <div
-              className="cs_random_features_col vectos_feature_col"
-              key={index}
-            >
-              <div className="vectos_feature_card">
-                <Feature {...item} />
+        <div className="vx_features_grid">
+          {data?.map(({ iconSrc, title, subTitle }, index) => (
+            <article className="vx_feature vx_card" key={title}>
+              <div className="vx_feature_top">
+                <span className="vx_feature_icon">
+                  <img src={iconSrc} alt="" />
+                </span>
+                <span className="vx_feature_step">0{index + 1}</span>
               </div>
-            </div>
+              <h3>{title}</h3>
+              <p>{subTitle}</p>
+            </article>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

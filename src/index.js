@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { ShoesProvider } from "./Store/contextAPI.js";
+// global styles first, so component stylesheets (imported through App) can override the template
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "./sass/index.scss";
+import "./styles/theme.css";
+import App from "./App";
+import { ShoesProvider } from "./Store/contextAPI.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,5 +17,5 @@ root.render(
         <App />
       </ShoesProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

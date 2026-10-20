@@ -1,22 +1,18 @@
-import React from 'react';
-import SectionHeading from '../SectionHeading';
-import Spacing from '../Spacing';
-import Button from '../Button';
-import { pageTitle } from '../../helpers/PageTitle';
+import React from "react";
+import { Link } from "react-router-dom";
+import { pageTitle } from "../../helpers/PageTitle";
 
 export default function ErrorPage() {
-  pageTitle('Error');
+  pageTitle("Page not found");
   return (
-    <div className="cs_error cs_center text-center cs_gray_bg_1">
-      <div className="container">
-        <SectionHeading
-          title="This page could <br> not be found."
-          titleUp="404 Errro"
-          variantColor="cs_white_color"
-        />
-        <Spacing lg="30" md="30" />
-        <Button btnText="Back To Home" btnUrl="/" />
-      </div>
-    </div>
+    <main className="vx_404">
+      <img src="/images/logo_icon.svg" alt="" width="56" height="56" />
+      <span className="vx_eyebrow">Error 404</span>
+      <h1>This page could not be found.</h1>
+      <p>The link may be broken, or the page may have been moved.</p>
+      <Link to="/" className="vx_btn vx_btn_primary">
+        Back to home
+      </Link>
+    </main>
   );
 }

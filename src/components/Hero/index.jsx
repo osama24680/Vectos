@@ -1,7 +1,8 @@
-import React from 'react';
-import parse from 'html-react-parser';
-import VideoModal from '../VideoModal';
-import './style.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import parse from "html-react-parser";
+import VideoModal from "../VideoModal";
+import "./style.css";
 
 export default function Hero({
   title,
@@ -11,6 +12,8 @@ export default function Hero({
   videoBtnText,
   videoUrl,
   infoList,
+  btnText,
+  btnUrl,
 }) {
   return (
     <section className="cs_hero cs_style_1">
@@ -27,22 +30,28 @@ export default function Hero({
         <div className="container">
           <div className="cs_hero_content">
             <div className="cs_hero_text">
-            <h1 className="cs_hero_title cs_fs_94">{parse(title)}</h1>
-            <p className="cs_hero_subtitle cs_fs_20 cs_heading_color">
-              {parse(subTitle)}
-            </p>
-            <div className="cs_hero_btn_wrap">
-              <VideoModal
-                videoUrl={videoUrl}
-                videoBtnText={videoBtnText}
-                variant="cs_heading_color"
+              <h1 className="cs_hero_title cs_fs_94">{parse(title)}</h1>
+              <p className="cs_hero_subtitle cs_fs_20 cs_heading_color">{parse(subTitle)}</p>
+              <div className="cs_hero_btn_wrap">
+                {btnText && (
+                  <Link to={btnUrl} className="vx_btn vx_btn_primary vx_hero_cta">
+                    {btnText}
+                  </Link>
+                )}
+                <VideoModal
+                  videoUrl={videoUrl}
+                  videoBtnText={videoBtnText}
+                  variant="cs_heading_color"
+                />
+              </div>
+            </div>
+            <div className="cs_hero_img_wrap">
+              <img
+                src={imgUrl}
+                alt="Vectos smart shoe with embedded sensors"
+                className="cs_hero_img"
               />
             </div>
-          </div>
-            <div className="cs_hero_img_wrap">
-              <img src={imgUrl} alt="Hero" className="cs_hero_img" />
-          </div>
-          
           </div>
 
           <div className="cs_hero_info_wrap cs_shadow_1 cs_white_bg cs_radius_15">
@@ -53,12 +62,8 @@ export default function Hero({
                     <img src={item.iconUrl} alt="Icon" />
                   </div>
                   <div className="cs_hero_info_right">
-                    <h3 className="cs_hero_info_title cs_semibold">
-                      {item.title}
-                    </h3>
-                    <p className="cs_hero_info_subtitle cs_fs_20">
-                      {item.subTitle}
-                    </p>
+                    <h3 className="cs_hero_info_title cs_semibold">{item.title}</h3>
+                    <p className="cs_hero_info_subtitle cs_fs_20">{item.subTitle}</p>
                   </div>
                 </div>
               </div>

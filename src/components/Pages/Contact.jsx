@@ -1,37 +1,55 @@
-import React from 'react';
-import BannerSectionStyle5 from '../Section/BannerSection/BannerSectionStyle5';
-import ContactForm from '../ContactForm';
-import Section from '../Section';
-import ContactInfoSection from '../Section/ContactInfoSection';
-import { pageTitle } from '../../helpers/PageTitle';
+import React from "react";
+import { Icon } from "@iconify/react";
+import PageHead from "../PageHead";
+import ContactForm from "../ContactForm";
+import { pageTitle } from "../../helpers/PageTitle";
+import "./Contact.css";
+
+const channels = [
+  {
+    icon: "fa6-solid:envelope",
+    label: "Email",
+    value: "vectos@hello.tech",
+    href: "mailto:vectos@hello.tech",
+  },
+  { icon: "fa6-solid:phone", label: "Phone", value: "+358 44 954 7051", href: "tel:+358449547051" },
+  { icon: "fa6-solid:location-dot", label: "Location", value: "Jyväskylä, Finland" },
+];
 
 export default function Contact() {
-  pageTitle('Contact');
+  pageTitle("Contact");
   return (
     <>
-      <BannerSectionStyle5
-        bgUrl="/images/contact/banner_bg.svg"
-        imgUrl="/images/contact/banner_contact.png"
-        title="Contact Us"
-        subTitle="We’re here to help you take charge of your health journey. Reach out for quick responses and personalized support from the Vectos team."
+      <PageHead
+        eyebrow="Get in touch"
+        title="Contact the Vectos team"
+        subtitle="Questions about the smart shoe, a pilot, or a partnership? Send us a message and we'll get back to you."
+        crumbs={[{ label: "Contact" }]}
       />
-      <div className="container cs_mt_minus_110">
-        <div className="row">
-          <div className="col-lg-10 offset-lg-1">
+      <section className="vx_contact">
+        <div className="container">
+          <div className="vx_contact_grid">
+            <aside className="vx_contact_info">
+              {channels.map(({ icon, label, value, href }) => (
+                <div className="vx_contact_channel vx_card" key={label}>
+                  <span className="vx_contact_icon">
+                    <Icon icon={icon} />
+                  </span>
+                  <div>
+                    <span>{label}</span>
+                    {href ? <a href={href}>{value}</a> : <strong>{value}</strong>}
+                  </div>
+                </div>
+              ))}
+              <p className="vx_contact_note">
+                For pilot programs, use the <a href="/#pilot">pilot request form</a> on the home
+                page.
+              </p>
+            </aside>
             <ContactForm />
           </div>
         </div>
-      </div>
-      <Section
-        topMd={200}
-        topLg={150}
-        topXl={100}
-        bottomMd={200}
-        bottomLg={150}
-        bottomXl={110}
-      >
-        <ContactInfoSection sectionTitle="Find Us Here" />
-      </Section>
+      </section>
     </>
   );
 }

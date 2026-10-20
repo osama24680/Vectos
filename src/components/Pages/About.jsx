@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { shoesStore } from "../../Store/contextAPI.js";
-import BannerSectionStyle3 from "../Section/BannerSection/BannerSectionStyle3";
+import PageHead from "../PageHead";
 // import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
 import Section from "../Section";
 import DepartmentSectionStyle2 from "../Section/DepartmentSection/DepartmentSectionStyle2";
@@ -22,16 +22,23 @@ export default function About() {
   pageTitle("About");
   return (
     <>
-      <BannerSectionStyle3
-        bgUrl="/images/about/banner_bg.svg"
-        imgUrl="/images/about/banner_img.jpg"
-        title="About Vectos <br />An AI health technology startup building wearable systems for early risk monitoring through embedded sensing, movement analysis, and intelligent pattern detection."
-        subTitle="Built at the intersection of wearable hardware, AI modeling, and real-world health insight."
+      <PageHead
+        eyebrow="About Vectos"
+        title="Wearable systems for early health-risk monitoring"
+        subtitle="An AI health-technology startup combining embedded sensing, movement analysis and pattern detection — built at the intersection of wearable hardware, AI and real-world health insight."
+        crumbs={[{ label: "About" }]}
       />
+      <div className="container">
+        <img
+          className="vx_about_photo"
+          src="/images/about/banner_img.jpg"
+          alt="The Vectos team working on the smart shoe, sensor boards and the monitoring dashboard"
+        />
+      </div>
       <Section topMd={200} topLg={150} topXl={110}>
         <DepartmentSectionStyle2
-          sectionTitle="PLATFORM CAPABILITIES"
-          sectionTitleUp="SERVICES"
+          sectionTitle="Platform capabilities"
+          sectionTitleUp="What Vectos does"
           data={departmentData}
         />
       </Section>
@@ -39,24 +46,16 @@ export default function About() {
       <Section topMd={190} topLg={145} topXl={105}>
         <TeamSection
           sectionTitle="The Team Behind Vectos"
-          sectionTitleUp="MEET "
+          sectionTitleUp="Meet the people"
           data={teamData}
         />
       </Section>
 
-
-      <Section
-        topMd={190}
-        topLg={145}
-        topXl={105}
-        bottomMd={200}
-        bottomLg={150}
-        bottomXl={110}
-      >
+      <Section topMd={190} topLg={145} topXl={105} bottomMd={200} bottomLg={150} bottomXl={110}>
         <AwardSectionStyle2
-          sectionTitle="Validation <br />Recognition"
-          sectionTitleUp="AWARDS"
-          sectionSubTitle="Early recognition for the vision, feasibility, and innovation behind Vectos.."
+          sectionTitle="Recognition & awards"
+          sectionTitleUp="Validation"
+          sectionSubTitle="Early recognition for the vision, feasibility, and innovation behind Vectos."
           data={awardData}
         />
       </Section>

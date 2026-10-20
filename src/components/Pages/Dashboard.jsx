@@ -1,23 +1,21 @@
-import React from 'react'
-import BannerSectionStyle3 from "../Section/BannerSection/BannerSectionStyle3";
-import DashboardCharts from '../Dashboard/DashboardCharts.jsx';
-import Spacing from '../Spacing/index.jsx';
+import React from "react";
+import PageHead from "../PageHead";
+import DashboardCharts from "../Dashboard/DashboardCharts.jsx";
 import { pageTitle } from "../../helpers/PageTitle";
+
 const Dashboard = () => {
   pageTitle("Dashboard");
   return (
     <>
-      <BannerSectionStyle3
-        bgUrl="/images/about/banner_bg.svg"
-        imgUrl="/images/about/banner_img.jpg"
-        title="Explore the Power of AI with Vectos"
-        subTitle="Revolutionizing health and wellness through advanced machine learning."
+      <PageHead
+        eyebrow="Live monitoring"
+        title="Sensor Dashboard"
+        subtitle="Real-time readings streamed from the Vectos smart shoe — vital signs, motion and fall detection in one view."
+        crumbs={[{ label: "Dashboard" }]}
       />
-      {/* <Spacing md="72" lg="50" /> */}
       <DashboardCharts />
-      <Spacing md="72" lg="50" />
     </>
   );
-}
+};
 
-export default Dashboard
+export default Dashboard;

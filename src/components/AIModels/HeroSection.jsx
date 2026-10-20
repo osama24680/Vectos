@@ -1,17 +1,13 @@
 import React from "react";
-import BannerSectionStyle3 from "../Section/BannerSection/BannerSectionStyle3";
+import PageHead from "../PageHead";
 
-const HeroSection = () => {
-  return (
-    <>
-      <BannerSectionStyle3
-        bgUrl="/images/about/banner_bg.svg"
-        imgUrl="/images/about/banner_img.jpg"
-        title="Explore the Power of AI with Vectos"
-        subTitle="Revolutionizing health and wellness through advanced machine learning."
-      />
-    </>
-  );
-};
+const HeroSection = () => (
+  <PageHead
+    eyebrow="Machine learning"
+    title="AI Models"
+    subtitle="Models trained on physiological and movement data to turn raw sensor readings into health insights."
+    crumbs={[{ label: "AI Models" }]}
+  />
+);
 
 export default HeroSection;

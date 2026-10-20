@@ -4,7 +4,7 @@ import { shoesStore } from "../../Store/contextAPI.js";
 // import BannerSectionStyle9 from "../Section/BannerSection/BannerSectionStyle9";
 import Section from "../Section";
 import BlogSectionStyle2 from "../Section/BlogSection/index.jsx";
-import Breadcrumb from "../Breadcrumb";
+import PageHead from "../PageHead";
 import { pageTitle } from "../../helpers/PageTitle";
 
 export default function Blog() {
@@ -14,10 +14,13 @@ export default function Blog() {
   pageTitle("Blog");
   return (
     <>
-      <Section topMd={170} bottomMd={96} bottomLg={70}>
-        <Breadcrumb title="Psychology and Life St yle" />
-      </Section>
-      <Section bottomMd={200} bottomLg={150} bottomXl={110}>
+      <PageHead
+        eyebrow="Blog"
+        title="Health & lifestyle insights"
+        subtitle="Research-backed articles on the signals Vectos measures — from heart health and oxygen levels to stress, metabolism and movement."
+        crumbs={[{ label: "Blog" }]}
+      />
+      <Section topMd={100} topLg={80} topXl={70} bottomMd={200} bottomLg={150} bottomXl={110}>
         <BlogSectionStyle2 data={blogData} />
       </Section>
       {/* <Section className="cs_footer_margin_0">

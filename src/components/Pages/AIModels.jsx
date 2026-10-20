@@ -8,7 +8,7 @@ import { pageTitle } from "../../helpers/PageTitle";
 const AIModelsPage = () => {
   pageTitle("AI Models");
   return (
-    <div>
+    <div className="vx_models_page">
       <HeroSection />
       <ModelsSection />
       <InteractiveForm />

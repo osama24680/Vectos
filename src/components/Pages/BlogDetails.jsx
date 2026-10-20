@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { shoesStore } from "../../Store/contextAPI.js";
 import { Link } from "react-router-dom";
 import Section from "../Section";
-import Breadcrumb from "../Breadcrumb";
+import PageHead from "../PageHead";
 import { Icon } from "@iconify/react";
 import Spacing from "../Spacing";
 import Sidebar from "../Sidebar";
@@ -19,15 +19,56 @@ export default function BlogDetails() {
 
   const ctx = useContext(shoesStore);
   const BlogDetailsStore = ctx.BlogDetails;
-  const blogDetailsPost = BlogDetailsStore.find(
-    (element) => element.idBlogPost === idBlogPost
-  );
-  pageTitle("Blog Details");
+  const blogDetailsPost = BlogDetailsStore.find((element) => element.idBlogPost === idBlogPost);
+  pageTitle(blogDetailsPost ? blogDetailsPost.title : "Article not found");
+
+  if (!blogDetailsPost) {
+    return (
+      <>
+        <PageHead
+          title="Article not found"
+          subtitle="This article doesn't exist or may have been moved."
+          crumbs={[{ label: "Blog", to: "/blog" }, { label: "Not found" }]}
+        />
+        <Section topMd={80} bottomMd={120}>
+          <div className="container">
+            <Link to="/blog" className="vx_btn vx_btn_primary">
+              Back to the blog
+            </Link>
+          </div>
+        </Section>
+      </>
+    );
+  }
+
+  const pageUrl = encodeURIComponent(window.location.href);
+  const shareText = encodeURIComponent(blogDetailsPost.title);
+  const shareLinks = [
+    {
+      icon: "fa-brands:facebook-f",
+      label: "Share on Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
+    },
+    {
+      icon: "fa-brands:linkedin-in",
+      label: "Share on LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`,
+    },
+    {
+      icon: "fa-brands:twitter",
+      label: "Share on X",
+      href: `https://twitter.com/intent/tweet?url=${pageUrl}&text=${shareText}`,
+    },
+  ];
+
   return (
     <>
-      <Section topMd={170} bottomMd={54} bottomLg={54}>
-        <Breadcrumb title={blogDetailsPost?.title} />
-      </Section>
+      <PageHead
+        eyebrow="Article"
+        title={blogDetailsPost.title}
+        crumbs={[{ label: "Blog", to: "/blog" }, { label: "Article" }]}
+      />
+      <Spacing md="60" lg="50" />
       <div className="container">
         <div className="cs_blog_details_info">
           <div className="cs_blog_details_info_left">
@@ -39,31 +80,21 @@ export default function BlogDetails() {
               ))}
             </div>
 
-            <div className="cs_blog_details_date">
-              {blogDetailsPost?.publishDate}
-            </div>
+            <div className="cs_blog_details_date">{blogDetailsPost?.publishDate}</div>
           </div>
           <div className="cs_social_links_wrap">
             <h2>Share:</h2>
             <div className="cs_social_links">
-              <Link to="">
-                <Icon icon="fa-brands:facebook-f" />
-              </Link>
-              <Link to="">
-                <Icon icon="fa-brands:linkedin-in" />
-              </Link>
-              <Link to="">
-                <Icon icon="fa-brands:twitter" />
-              </Link>
+              {shareLinks.map(({ icon, label, href }) => (
+                <a key={icon} href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                  <Icon icon={icon} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
         <Spacing md="55" />
-        <img
-          src={blogDetailsPost?.imageHeader}
-          alt="Blog Details"
-          className="w-100 cs_radius_20"
-        />
+        <img src={blogDetailsPost?.imageHeader} alt="" className="w-100 cs_radius_20" />
         <Spacing md="90" lg="50" />
         <div className="row">
           <div className="col-lg-8">

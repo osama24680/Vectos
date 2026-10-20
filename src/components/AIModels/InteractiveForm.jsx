@@ -26,15 +26,11 @@ const InteractiveForm = () => {
   const [Speed_01_msec, setSpeed_01_msec] = useState("");
   const [Speed_10, setSpeed_10] = useState("");
 
-
-
   const [SS_Age, setSS_Age] = useState("");
   const [SS_HeartRate, setSS_Heart_Rate] = useState("");
   const [SS_Sleep_Duration, setSS_Sleep_Duration] = useState("");
   const [SS_Systole, setSS_Systole] = useState("");
   const [SS_Diastole, setSS_Diastole] = useState("");
-
-
 
   const [prediction, setPrediction] = useState(null);
 
@@ -102,7 +98,7 @@ const InteractiveForm = () => {
 
     if (!ML_API_URL) {
       setError(
-        "The AI service isn't connected in this deployment yet. Run the Flask models locally and set REACT_APP_ML_API_URL to try them."
+        "The AI service isn't connected in this deployment yet. Run the Flask models locally and set REACT_APP_ML_API_URL to try them.",
       );
       return;
     }
@@ -119,7 +115,7 @@ const InteractiveForm = () => {
         err.response?.data?.error ||
           (err.request && !err.response
             ? "Couldn't reach the AI service — it may be offline. Please try again later."
-            : err.message)
+            : err.message),
       );
     } finally {
       setLoading(false);
@@ -136,7 +132,7 @@ const InteractiveForm = () => {
       return (
         <>
           <div className="form-group">
-            <label>Age:</label>
+            <label>Age</label>
             <input
               type="number"
               name="age"
@@ -146,7 +142,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Duration (min):</label>
+            <label>Duration (min)</label>
             <input
               type="number"
               name="duration"
@@ -156,7 +152,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Temperature (°C):</label>
+            <label>Temperature (°C)</label>
             <input
               type="number"
               name="temperature"
@@ -166,7 +162,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Heart Rate:</label>
+            <label>Heart Rate</label>
             <input
               type="number"
               name="heartRate"
@@ -180,8 +176,8 @@ const InteractiveForm = () => {
     } else if (selectedModel === "stress") {
       return (
         <>
-          <div className="form-group ">
-            <label>Sweat (%):</label>
+          <div className="form-group">
+            <label>Sweat (%)</label>
             <input
               type="number"
               name="humidity"
@@ -191,7 +187,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Temperature (°C):</label>
+            <label>Temperature (°C)</label>
             <input
               type="number"
               name="temperature"
@@ -201,7 +197,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Step Count:</label>
+            <label>Step Count</label>
             <input
               type="number"
               name="stepCount"
@@ -216,7 +212,7 @@ const InteractiveForm = () => {
       return (
         <>
           <div className="form-group">
-            <label>Age:</label>
+            <label>Age</label>
             <input
               type="text"
               name="Age"
@@ -226,7 +222,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Height (m):</label>
+            <label>Height (m)</label>
             <input
               type="text"
               name="Height (m)"
@@ -236,7 +232,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Weight (Kg):</label>
+            <label>Weight (Kg)</label>
             <input
               type="text"
               name="Weight (Kg)"
@@ -246,7 +242,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>HoehnYahr:</label>
+            <label>HoehnYahr</label>
             <input
               type="text"
               name="HoehnYahr"
@@ -256,7 +252,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>UPDRSM:</label>
+            <label>UPDRSM</label>
             <input
               type="text"
               name="UPDRSM"
@@ -266,7 +262,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>TUAG:</label>
+            <label>TUAG</label>
             <input
               type="text"
               name="TUAG"
@@ -276,7 +272,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Speed_01_msec:</label>
+            <label>Speed_01_msec</label>
             <input
               type="text"
               name="Speed_01_msec"
@@ -286,7 +282,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Speed_10_msec:</label>
+            <label>Speed_10_msec</label>
             <input
               type="text"
               name="Speed_10"
@@ -301,7 +297,7 @@ const InteractiveForm = () => {
       return (
         <>
           <div className="form-group">
-            <label>Age:</label>
+            <label>Age</label>
             <input
               type="text"
               name="age"
@@ -311,7 +307,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Sleep Duration (H):</label>
+            <label>Sleep Duration (H)</label>
             <input
               type="text"
               name="Sleep Duration (H):"
@@ -321,7 +317,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Heart Rate (BPS):</label>
+            <label>Heart Rate (BPS)</label>
             <input
               type="text"
               name="Heart Rate (BPM):"
@@ -331,7 +327,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Systole:</label>
+            <label>Systole</label>
             <input
               type="text"
               name="Systole"
@@ -341,7 +337,7 @@ const InteractiveForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Diastole:</label>
+            <label>Diastole</label>
             <input
               type="text"
               name="Diastole"
@@ -356,15 +352,16 @@ const InteractiveForm = () => {
   };
 
   return (
-    <section className="interactive-form">
-      <h2>Test Our AI Models</h2>
+    <section className="interactive-form" id="try">
+      <span className="vx_eyebrow">Try it</span>
+      <h2>Test our AI models</h2>
+      <p className="interactive-form_lead">
+        Pick a model, enter a few readings and get a prediction from the same models the shoe uses.
+      </p>
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group select-only">
-          <label>Choose Model:</label>
-          <select
-            name="model"
-            onChange={(e) => setSelectedModel(e.target.value)}
-          >
+          <label>Choose Model</label>
+          <select name="model" onChange={(e) => setSelectedModel(e.target.value)}>
             <option value="calories">Calories Estimation</option>
             {/* <option value="stress">Stress Level Prediction</option> */}
             {/* <option value="parkinson">parkinson Disease Prediction</option> */}
@@ -388,12 +385,8 @@ const InteractiveForm = () => {
       {prediction !== null && (
         <div className="output-container">
           <div className="output-box">
-            {selectedModel === "calories" && (
-              <p>🔥 Estimated Calories Burned: {prediction}</p>
-            )}
-            {selectedModel === "stress" && (
-              <p>🧘 Predicted Stress Level: {prediction}</p>
-            )}
+            {selectedModel === "calories" && <p>🔥 Estimated Calories Burned: {prediction}</p>}
+            {selectedModel === "stress" && <p>🧘 Predicted Stress Level: {prediction}</p>}
             {selectedModel === "parkinson" && (
               <p>🧠 Predicted parkinson Disease Risk: {prediction}</p>
             )}

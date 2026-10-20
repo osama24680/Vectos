@@ -9,7 +9,7 @@ import { BlogDetails } from "./Data/BlogDetails.js";
 // keys come from .env.local (see .env.example) so they stay out of the repository
 const THINGSPEAK_CHANNEL = process.env.REACT_APP_THINGSPEAK_CHANNEL_ID;
 const THINGSPEAK_READ_KEY = process.env.REACT_APP_THINGSPEAK_READ_KEY;
-const THINGSPEAK_RESULTS = process.env.REACT_APP_THINGSPEAK_RESULTS || 2;
+const THINGSPEAK_RESULTS = process.env.REACT_APP_THINGSPEAK_RESULTS || 30;
 const EMAILJS_SERVICE = process.env.REACT_APP_EMAILJS_SERVICE_ID;
 const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 const EMAILJS_TEMPLATE_BLOG = process.env.REACT_APP_EMAILJS_TEMPLATE_BLOG;
@@ -27,9 +27,10 @@ export const ShoesProvider = (props) => {
       return;
     }
     setThingSpeakLoading(true);
+    setThingSpeakError(null);
     try {
       const response = await fetch(
-        `https://api.thingspeak.com/channels/${THINGSPEAK_CHANNEL}/feeds.json?api_key=${THINGSPEAK_READ_KEY}&results=${THINGSPEAK_RESULTS}`
+        `https://api.thingspeak.com/channels/${THINGSPEAK_CHANNEL}/feeds.json?api_key=${THINGSPEAK_READ_KEY}&results=${THINGSPEAK_RESULTS}`,
       );
 
       if (!response.ok) {
@@ -38,7 +39,7 @@ export const ShoesProvider = (props) => {
       const result = await response.json();
 
       const sortedFeeds = result.feeds.sort(
-        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+        (a, b) => new Date(b.created_at) - new Date(a.created_at),
       );
 
       setThingSpeakData({ ...result, feeds: sortedFeeds });
@@ -48,45 +49,6 @@ export const ShoesProvider = (props) => {
       setThingSpeakLoading(false);
     }
   };
-
-  // const BloodOxygen = thingSpeakData?.feeds.map((feed) =>console.log(feed.field1))
-  //   const HeartRate = thingSpeakData?.feeds.map((feed) =>console.log(feed.field2))
-  //   const Temperature = thingSpeakData?.feeds.map((feed) =>console.log(feed.field3))
-  //   const Humidity = thingSpeakData?.feeds.map((feed) =>console.log(feed.field4))
-  //   const Speed = thingSpeakData?.feeds.map((feed) =>console.log(feed.field5))
-  //   const Acceleration = thingSpeakData?.feeds.map((feed) =>console.log(feed.field6))
-
-  const TotalAcceleration = thingSpeakData?.feeds.map((item) =>
-    parseFloat(item.field1)
-  );
-  const totalGyroscope = thingSpeakData?.feeds.map((item) =>
-    parseFloat(item.field2)
-  );
-  const stepCount = thingSpeakData?.feeds.map((item) =>
-    parseFloat(item.field3)
-  );
-  const fallCode = thingSpeakData?.feeds.map((item) => parseFloat(item.field4));
-  const HeartBeatAvgerage = thingSpeakData?.feeds.map((item) => parseFloat(item.field5));
-  const bloodOxygen = thingSpeakData?.feeds.map((item) =>
-    parseFloat(item.field6)
-  );
-  const humidity = thingSpeakData?.feeds.map((item) =>
-    parseFloat(item.field7)
-  );
-  const Temperature = thingSpeakData?.feeds.map((item) =>
-    parseFloat(item.field8)
-  );
-  const TimeData = thingSpeakData?.feeds.map((item) => {
-    const date = new Date(item.created_at); // Convert the string to a Date object
-    const time = date.toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true, // Enable 12-hour format
-    });
-    return time.replace(/ (am|pm)/, ""); // Remove 'AM' or 'PM'
-  });
-
-
 
   useEffect(() => {
     fetchData();
@@ -109,7 +71,7 @@ export const ShoesProvider = (props) => {
         (error) => {
           console.error("EmailJS error:", error.text);
           toast.error("Something wrong happened!");
-        }
+        },
       );
   };
 
@@ -122,12 +84,13 @@ export const ShoesProvider = (props) => {
       })
       .then(
         () => {
-          toast.success("Message sent successfully!", {});
+          toast.success("Message sent — we'll get back to you soon.");
+          form_Contact.current?.reset();
         },
         (error) => {
           console.error("EmailJS error:", error.text);
           toast.error("Something wrong happened!");
-        }
+        },
       );
   };
 
@@ -142,18 +105,8 @@ export const ShoesProvider = (props) => {
     thingSpeakData,
     thingSpeakError,
     thingSpeakLoading,
-    bloodOxygen,
-    totalGyroscope,
-    stepCount,
-    fallCode,
-    HeartBeatAvgerage,
-    TotalAcceleration,
-    TimeData,
-    humidity,
-    Temperature
+    refreshThingSpeak: fetchData,
   };
 
-  return (
-    <shoesStore.Provider value={values}>{props.children}</shoesStore.Provider>
-  );
+  return <shoesStore.Provider value={values}>{props.children}</shoesStore.Provider>;
 };

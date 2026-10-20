@@ -9,8 +9,7 @@ export const departmentData = [
 
   {
     title: "AI Pattern Recognition",
-    subTitle:
-      "Our models analyze micro-deviations in your data before symptoms become noticeable.",
+    subTitle: "Our models analyze micro-deviations in your data before symptoms become noticeable.",
     iconUrl: "/images/icons/calendar_white.svg",
     // href: "/departments/department-details",
   },
@@ -31,12 +30,10 @@ export const departmentData = [
   },
   {
     title: "Scalable Health Intelligence Platform",
-    subTitle:
-      "From individual users to research pilots and clinical collaborations.",
+    subTitle: "From individual users to research pilots and clinical collaborations.",
     iconUrl: "/images/icons/calendar_white.svg",
     // href: "/departments/department-details",
   },
-
 ];
 
 export const featureListData = [
@@ -82,8 +79,7 @@ export const teamData = [
     imgUrl: "/images/about/osama.jpg",
     name: "Eng. Osama Megahed",
     designation: "EC Engineer",
-    description:
-      "Founder and Lead Engineer of Vectos.",
+    description: "Founder and Lead Engineer of Vectos.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -99,8 +95,7 @@ export const teamData = [
     imgUrl: "/images/about/yasmine.jpg",
     name: "Dr. Yasmine Mokhtar",
     designation: "Lecturer at the Faculty of Fine Arts, Alexandria University",
-    description:
-      "Co-Founder and Lead Researcher of Vectos.",
+    description: "Co-Founder and Lead Researcher of Vectos.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -117,8 +112,7 @@ export const teamData = [
     imgUrl: "/images/about/ebraheem.jpg",
     name: "Eng. Ebraheem Ragab",
     designation: "Computer Engineer",
-    description:
-      "Communications and PR Manager.",
+    description: "Communications and PR Manager.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -134,8 +128,7 @@ export const teamData = [
     imgUrl: "/images/about/mayar.jpg",
     name: "Eng. Mayar Magdy",
     designation: "EC Engineer",
-    description:
-      "Electronics Engineer.",
+    description: "Electronics Engineer.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -151,8 +144,7 @@ export const teamData = [
     imgUrl: "/images/about/hesham.jpg",
     name: "Eng. Ahmed Hesham",
     designation: "Computer Engineer",
-    description:
-      "Software Engineer.",
+    description: "Software Engineer.",
     social: [
       {
         icon: "fa6-brands:linkedin-in",
@@ -164,8 +156,6 @@ export const teamData = [
       },
     ],
   },
-
-
 ];
 
 export const galleryData = [
@@ -179,12 +169,12 @@ export const galleryData = [
 export const awardData = [
   {
     iconUrl: "/images/about/rally.jpeg",
-    title: "Rally AAST-EC",
-    stage: "7th Stage",
+    title: "Rally Entrepreneurship Competition — AAST",
+    stage: "7th place",
   },
   {
     iconUrl: "/images/about/plan.png",
-    title: "Plan Inter.",
-    stage: "Top 10",
+    title: "Plan International Entrepreneurship Program",
+    stage: "Top 10 · $1,000 funding",
   },
 ];

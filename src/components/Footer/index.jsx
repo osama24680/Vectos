@@ -1,81 +1,84 @@
-import React from 'react';
-import ContactInfoWidget from '../Widget/ContactInfoWidget';
-import MenuWidget from '../Widget/MenuWidget';
-import SocialWidget from '../Widget/SocialWidget';
-import Newsletter from '../Widget/Newsletter';
-import TextWidget from '../Widget/TextWidget';
-const menuDataOne = [
-  { title: 'How It Works', href: '/' },
-  { title: 'Technology', href: '/' },
-  { title: 'Pilot Program', href: '/' },
-  { title: 'Request Early Access', href: '/' },
-  { title: 'Dashboard', href: '/' }
-];
-const menuDataTwo = [
-  { title: 'Privacy Policy', href: '/blog' },
-  { title: 'Data Security', href: '/contact' },
-  { title: 'Terms of Service', href: '/' },
-  { title: 'Regulatory Disclaimer', href: '/' }
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
+import { AuthContext } from "../../AuthContext";
+import "./style.css";
+
+const contact = [
+  { icon: "fa6-solid:location-dot", label: "Jyväskylä, Finland" },
+  { icon: "fa6-solid:phone", label: "+358 44 954 7051", href: "tel:+358449547051" },
+  { icon: "fa6-solid:envelope", label: "vectos@hello.tech", href: "mailto:vectos@hello.tech" },
 ];
 
 export default function Footer() {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const explore = isAuthenticated
+    ? [
+        { to: "/about", label: "About" },
+        { to: "/blog", label: "Blog" },
+        { to: "/models", label: "AI Models" },
+        { to: "/dashboard", label: "Dashboard" },
+        { to: "/contact", label: "Contact" },
+      ]
+    : [
+        { to: "/", label: "Home" },
+        { to: "/register", label: "Sign in" },
+        { to: "/register", label: "Create account" },
+      ];
+
   return (
-    <footer className="cs_footer cs_style_1 cs_heading_color">
-      <div
-        className="cs_footer_logo_wrap"
-        style={{ backgroundImage: "url(/images/footer_bg_1.svg)" }}
-      >
-        <div
-          className="cs_footer_brand"
-          style={{ backgroundImage: "url(/images/footer_logo_bg.svg)" }}
-        >
-          <img
-            src="/images/logo_icon.svg"
-            alt="Logo Icon"
-            className="cs_footer_brand_icon"
-          />
-          <h2 className="cs_footer_brand_text">Vectos</h2>
+    <footer className="vx_footer">
+      <div className="container">
+        <div className="vx_footer_cta">
+          <div>
+            <h2>Ready to test Vectos in the real world?</h2>
+            <p>Clinics, research teams and partners — join our pilot program.</p>
+          </div>
+          <a href="/#pilot" className="vx_btn vx_btn_light">
+            Request a pilot
+          </a>
         </div>
-      </div>
-      <div className="cs_footer_main">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="cs_footer_item">
-                <TextWidget text="Vectos AI-powered early risk monitoring platform
-Designed for continuous physiological insight." />
-                <ContactInfoWidget />
-              </div>
-            </div>
-            <div className="col-lg-2">
-              <div className="cs_footer_item">
-                <MenuWidget data={menuDataOne} />
-              </div>
-            </div>
-            <div className="col-lg-2">
-              <div className="cs_footer_item">
-                <MenuWidget data={menuDataTwo} />
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="cs_footer_item">
-                <Newsletter
-                  title="Stay Connected"
-                  subTitle="Join the Predictive Health Movement"
-                />
-              </div>
-            </div>
+
+        <div className="vx_footer_grid">
+          <div className="vx_footer_brand">
+            <Link to="/" className="vx_footer_logo">
+              <img src="/images/logo_icon.svg" alt="" width="40" height="40" />
+              Vectos
+            </Link>
+            <p>
+              AI-powered smart shoes for early health-risk detection — continuous physiological and
+              movement insight, outside the clinic.
+            </p>
+          </div>
+
+          <nav className="vx_footer_col" aria-label="Footer">
+            <h3>Explore</h3>
+            <ul>
+              {explore.map(({ to, label }) => (
+                <li key={label}>
+                  <Link to={to}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="vx_footer_col">
+            <h3>Contact</h3>
+            <ul>
+              {contact.map(({ icon, label, href }) => (
+                <li key={label}>
+                  <Icon icon={icon} className="vx_footer_icon" />
+                  {href ? <a href={href}>{label}</a> : <span>{label}</span>}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-      <div className="cs_footer_bottom cs_accent_bg">
-        <div className="container">
-          <div className="cs_footer_bottom_in">
-            <SocialWidget />
-            <div className="cs_copyright">
-              Copyright © 2026 Vectos. All rights reserved.
-            </div>
-          </div>
+
+        <div className="vx_footer_bottom">
+          <span>© {new Date().getFullYear()} Vectos. All rights reserved.</span>
+          <span>Vectos supports early risk awareness — it does not replace clinical diagnosis.</span>
         </div>
       </div>
     </footer>

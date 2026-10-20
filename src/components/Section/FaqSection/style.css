@@ -1,0 +1,119 @@
+.vx_faq {
+  padding: 110px 0 140px;
+}
+
+.vx_faq_list {
+  display: grid;
+  gap: 12px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.vx_faq_item {
+  background: #fff;
+  border: 1px solid var(--vx-line);
+  border-radius: 16px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vx_faq_item.is-open {
+  border-color: rgba(48, 123, 196, 0.35);
+  box-shadow: var(--vx-shadow);
+}
+
+.vx_faq_item h3 {
+  margin: 0;
+}
+
+.vx_faq_item button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 24px;
+  font: 600 17px/1.4 var(--vx-font-head);
+  color: var(--vx-navy);
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.vx_faq_icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--vx-tint-2);
+  transition: background 0.25s ease;
+}
+
+.vx_faq_icon::before,
+.vx_faq_icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
+  border-radius: 2px;
+  background: var(--vx-blue);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.vx_faq_icon::after {
+  transform: rotate(90deg);
+}
+
+.vx_faq_item.is-open .vx_faq_icon {
+  background: var(--vx-blue);
+}
+
+.vx_faq_item.is-open .vx_faq_icon::before,
+.vx_faq_item.is-open .vx_faq_icon::after {
+  background: #fff;
+}
+
+.vx_faq_item.is-open .vx_faq_icon::after {
+  transform: rotate(0deg);
+}
+
+.vx_faq_panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.vx_faq_item.is-open .vx_faq_panel {
+  grid-template-rows: 1fr;
+}
+
+.vx_faq_panel > div {
+  overflow: hidden;
+}
+
+.vx_faq_panel p {
+  margin: 0;
+  padding: 0 24px 22px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--vx-text);
+}
+
+@media (max-width: 767px) {
+  .vx_faq {
+    padding: 80px 0 110px;
+  }
+
+  .vx_faq_item button {
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  .vx_faq_panel p {
+    padding: 0 18px 18px;
+  }
+}

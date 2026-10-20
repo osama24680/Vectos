@@ -1,116 +1,152 @@
-/* General Page Styles */
-.login-register-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Sign in / register: brand panel on the left, form on the right */
+.vx_auth {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   min-height: 100vh;
-  background: linear-gradient(to bottom, #d0f0ff, #87cefa);
-  font-family: Arial, sans-serif;
-  margin-bottom: 10rem;
-  margin-top: 1rem;
+  background: var(--vx-tint);
 }
 
-/* Form Card */
-.form-card {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
+/* ---------- Brand panel ---------- */
+.vx_auth_aside {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--vx-header-h) + 60px) 56px 64px;
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(30, 47, 69, 0.35) 0%, rgba(30, 47, 69, 0.92) 78%),
+    var(--auth-photo) center / cover;
+}
+
+.vx_auth_aside_in {
+  position: relative;
+  max-width: 460px;
+}
+
+.vx_auth_aside img {
+  margin-bottom: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.vx_auth_aside h2 {
+  margin: 0 0 14px;
+  font: 700 clamp(28px, 3vw, 38px)/1.15 var(--vx-font-head);
+  color: #fff;
+}
+
+.vx_auth_aside p {
+  margin: 0 0 22px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.vx_auth_aside ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vx_auth_aside li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.vx_auth_aside li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--vx-cyan) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%231e2f45' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+}
+
+/* ---------- Form side ---------- */
+.vx_auth_main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--vx-header-h) + 48px) 24px 56px;
+}
+
+.vx_auth_card {
+  width: 100%;
+  max-width: 440px;
+  padding: 40px 36px;
+  background: #fff;
+  border: 1px solid var(--vx-line);
+  border-radius: 24px;
+  box-shadow: var(--vx-shadow-lg);
+}
+
+.vx_auth_card h1 {
+  margin: 0 0 26px;
+  font: 700 30px/1.2 var(--vx-font-head);
+}
+
+.vx_auth_form {
+  display: grid;
+  gap: 16px;
+}
+
+.vx_field input[aria-invalid="true"] {
+  border-color: rgba(214, 69, 69, 0.6);
+  background: #fff8f8;
+}
+
+.vx_field_error {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--vx-danger);
+}
+
+.vx_auth_submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 14px 22px;
+}
+
+.vx_auth_switch {
+  margin: 22px 0 0;
   text-align: center;
-  transition: transform 0.3s ease-in-out;
-  margin-bottom: 12rem;
-  margin-top: 3rem;
+  font-size: 14px;
+  color: var(--vx-muted);
 }
 
-.form-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #555;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
-}
-
-.form-group input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Buttons */
-.form-button {
-  width: 100%;
-  padding: 10px;
-  background: #007bff;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.form-button:hover {
-  background: #0056b3;
-}
-
-/* Toggle Button */
-.toggle-form {
-  margin-top: 15px;
-  font-size: 0.9rem;
-}
-
-.toggle-button {
+.vx_auth_switch button {
+  padding: 0;
+  font-weight: 600;
+  color: var(--vx-blue);
   background: none;
-  border: none;
-  color: #007bff;
+  border: 0;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s;
 }
 
-.toggle-button:hover {
-  color: #0056b3;
+.vx_auth_switch button:hover {
+  text-decoration: underline;
 }
 
-.id-input {
-  border: 1px solid #28a745;
+@media (max-width: 991px) {
+  .vx_auth {
+    grid-template-columns: 1fr;
+  }
+
+  .vx_auth_aside {
+    display: none;
+  }
 }
 
-.id-input:focus {
-  border-color: #218838;
-  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
-}
-
-.form-error {
-  color: #dc3545; /* Red for errors */
-  font-size: 0.8rem;
-  margin-top: 5px;
-  text-align: left;
-}
-
-/* General Form Message */
-.form-message {
-  color: #28a745; /* Green for success */
-  font-size: 0.9rem;
-  margin-top: 15px;
-  text-align: center;
+@media (max-width: 480px) {
+  .vx_auth_card {
+    padding: 30px 22px;
+  }
 }

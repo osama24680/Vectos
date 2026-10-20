@@ -137,3 +137,18 @@
         max-width: 100%;
     }
 }
+
+/* readable contrast: white text sits on a deep navy-to-blue gradient */
+.vectos_banner {
+    background: linear-gradient(120deg, #1e2f45 0%, #274760 38%, #307bc4 100%);
+    border: 0;
+}
+
+.vectos_banner_overlay {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(53, 214, 255, 0.22), transparent 55%);
+}
+
+.vectos_banner .vectos_banner_subtitle {
+    color: rgba(255, 255, 255, 0.82) !important;
+}

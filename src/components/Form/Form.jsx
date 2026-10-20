@@ -20,8 +20,7 @@ const From = () => {
   const navigate = useNavigate();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
   const idRegex = /^\d{5}$/;
   const nameRegex = /^[A-Z][a-zA-Z\s]{2,29}$/;
 
@@ -38,8 +37,7 @@ const From = () => {
     let error = "";
 
     if (name === "name" && !nameRegex.test(value)) {
-      error =
-        "Name must start with an uppercase letter and contain 3-30 letters only.";
+      error = "Name must start with an uppercase letter and contain 3-30 letters only.";
     } else if (name === "id" && !idRegex.test(value)) {
       error = "ID must be exactly 5 numeric characters.";
     } else if (name === "email" && !emailRegex.test(value)) {
@@ -80,12 +78,7 @@ const From = () => {
         toast.error("Invalid email or password.");
       }
     } else {
-      if (
-        !formData.name ||
-        !formData.id ||
-        !formData.email ||
-        !formData.password
-      ) {
+      if (!formData.name || !formData.id || !formData.email || !formData.password) {
         toast.error("All fields are required.");
         return;
       }
@@ -125,86 +118,110 @@ const From = () => {
   };
 
   return (
-    <div className="login-register-container">
-      <div className="form-card">
-        <h2 className="form-title">
-          {isLogin ? "Login to Your Account" : "Create a New Account"}
-        </h2>
-
-        <form className="form-content" onSubmit={handleSubmit}>
-          {!isLogin && (
-            <>
-              <div className="form-group">
-                <label>Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                {errors.name && <p className="form-error">{errors.name}</p>}
-              </div>
-
-              <div className="form-group">
-                <label>ID</label>
-                <input
-                  type="text"
-                  name="id"
-                  placeholder="Enter your ID (5 digits)"
-                  value={formData.id}
-                  onChange={handleChange}
-                />
-                {errors.id && <p className="form-error">{errors.id}</p>}
-              </div>
-            </>
-          )}
-
-          <div className="form-group">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="form-error">{errors.email}</p>}
-          </div>
-
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p className="form-error">{errors.password}</p>}
-          </div>
-
-          <button type="submit" className="form-button">
-            {isLogin ? "Login" : "Register"}
-          </button>
-        </form>
-
-        <div className="toggle-form">
+    <section className="vx_auth">
+      <div
+        className="vx_auth_aside"
+        // public-folder image: set inline so the CSS bundler doesn't try to resolve it
+        style={{ "--auth-photo": "url(/images/about/banner_img.jpg)" }}
+      >
+        <div className="vx_auth_aside_in">
+          <img src="/images/logo_icon.svg" alt="" width="52" height="52" />
+          <h2>Your health, read from every step.</h2>
           <p>
+            Sign in to see live sensor readings from the Vectos smart shoe and try our AI models for
+            calories, stress and sleep quality.
+          </p>
+          <ul>
+            <li>Live heart rate, SpO₂ and temperature</li>
+            <li>Motion analysis and fall detection</li>
+            <li>AI-powered health predictions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="vx_auth_main">
+        <div className="vx_auth_card">
+          <span className="vx_eyebrow">{isLogin ? "Welcome back" : "Get started"}</span>
+          <h1>{isLogin ? "Sign in to Vectos" : "Create your account"}</h1>
+
+          <form className="vx_auth_form" onSubmit={handleSubmit} noValidate>
+            {!isLogin && (
+              <>
+                <div className="vx_field">
+                  <label htmlFor="auth-name">Full name</label>
+                  <input
+                    id="auth-name"
+                    type="text"
+                    name="name"
+                    placeholder="e.g. Sara Ahmed"
+                    autoComplete="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    aria-invalid={Boolean(errors.name)}
+                  />
+                  {errors.name && <p className="vx_field_error">{errors.name}</p>}
+                </div>
+                <div className="vx_field">
+                  <label htmlFor="auth-id">Member ID</label>
+                  <input
+                    id="auth-id"
+                    type="text"
+                    name="id"
+                    placeholder="5 digits"
+                    autoComplete="off"
+                    value={formData.id}
+                    onChange={handleChange}
+                    aria-invalid={Boolean(errors.id)}
+                  />
+                  {errors.id && <p className="vx_field_error">{errors.id}</p>}
+                </div>
+              </>
+            )}
+            <div className="vx_field">
+              <label htmlFor="auth-email">Email</label>
+              <input
+                id="auth-email"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                aria-invalid={Boolean(errors.email)}
+              />
+              {errors.email && <p className="vx_field_error">{errors.email}</p>}
+            </div>
+            <div className="vx_field">
+              <label htmlFor="auth-password">Password</label>
+              <input
+                id="auth-password"
+                type="password"
+                name="password"
+                placeholder="At least 8 characters"
+                autoComplete={isLogin ? "current-password" : "new-password"}
+                value={formData.password}
+                onChange={handleChange}
+                aria-invalid={Boolean(errors.password)}
+              />
+              {errors.password && <p className="vx_field_error">{errors.password}</p>}
+            </div>
+
+            <button type="submit" className="vx_btn vx_btn_primary vx_auth_submit">
+              {isLogin ? "Sign in" : "Create account"}
+            </button>
+          </form>
+
+          <p className="vx_auth_switch">
             {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-            <button
-              type="button"
-              className="toggle-button"
-              onClick={toggleForm}
-            >
-              {isLogin ? "Register here" : "Login here"}
+            <button type="button" onClick={toggleForm}>
+              {isLogin ? "Create one" : "Sign in"}
             </button>
           </p>
         </div>
       </div>
 
-      <ToastContainer />
-    </div>
+      <ToastContainer position="top-center" />
+    </section>
   );
 };
 

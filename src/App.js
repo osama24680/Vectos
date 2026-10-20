@@ -5,7 +5,6 @@ import Home from "./components/Pages/Home.jsx";
 import About from "./components/Pages/About.jsx";
 import Blog from "./components/Pages/Blog.jsx";
 import BlogDetails from "./components/Pages/BlogDetails.jsx";
-import Gallery from "./components/Pages/Gallery.jsx";
 import Models from "./components/Pages/AIModels.jsx";
 import Dashboard from "./components/Pages/Dashboard.jsx";
 import Contact from "./components/Pages/Contact.jsx";
@@ -46,14 +45,6 @@ function App() {
             }
           />
           <Route
-            path="gallery"
-            element={
-              <PrivateRoute>
-                <Gallery />
-              </PrivateRoute>
-            }
-          />
-          <Route
             path="models"
             element={
               <PrivateRoute>
@@ -77,7 +68,6 @@ function App() {
               </PrivateRoute>
             }
           />
-        
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

@@ -1,21 +1,24 @@
 import React from "react";
-import Spacing from "../Spacing/index.jsx";
+import { Icon } from "@iconify/react";
 import "./FutureModels.css";
 
-const FutureModels = () => {
-  return (
-    <>
-      <section className="future-models">
-        <h2>More AI Models Coming Soon</h2>
-        <p>
-          Stay tuned for new AI models that will enhance health monitoring, such
-          as heart disease prediction.
-        </p>
-        {/* <img src="/assets/images/future-ai.png" alt="Future AI Models" />  */}
-      </section>
-      <Spacing md="72" lg="50" />
-    </>
-  );
-};
+const FutureModels = () => (
+  <section className="vx_future">
+    <div className="container">
+      <div className="vx_future_card">
+        <span className="vx_future_icon">
+          <Icon icon="mdi:flask-outline" />
+        </span>
+        <div>
+          <h2>More models in the lab</h2>
+          <p>
+            We're training new models on gait and vital-sign data — next up is early heart-disease
+            risk prediction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default FutureModels;

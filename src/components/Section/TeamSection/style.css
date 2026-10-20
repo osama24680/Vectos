@@ -1,0 +1,97 @@
+/* founders on the first row, the rest of the team below — same photo ratio everywhere */
+.teamLayoutImages.vx_team {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 40px 28px;
+}
+
+.teamLayoutImages.vx_team .cs_team {
+  width: auto;
+  margin: 0 !important;
+  grid-column: span 2;
+}
+
+.teamLayoutImages.vx_team .cs_team:nth-child(1),
+.teamLayoutImages.vx_team .cs_team:nth-child(2) {
+  width: auto;
+  grid-column: span 3;
+}
+
+/* the template pulled the photo up 115px over a padded card — undo both */
+.teamLayoutImages.vx_team .cs_team.cs_style_1.cs_type_1 {
+  padding-top: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.teamLayoutImages.vx_team .cs_team.cs_style_1.cs_type_1 .cs_member_img {
+  margin-top: 0;
+}
+
+.teamLayoutImages.vx_team .cs_team.cs_style_1.cs_type_1 .cs_member_img img {
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.teamLayoutImages.vx_team .cs_team.cs_style_1 .cs_team_meta {
+  padding: 0 8px;
+}
+
+.teamLayoutImages.vx_team .cs_member_img {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--vx-tint-2);
+}
+
+.teamLayoutImages.vx_team .cs_team:nth-child(1) .cs_member_img,
+.teamLayoutImages.vx_team .cs_team:nth-child(2) .cs_member_img {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.teamLayoutImages.vx_team .cs_member_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.teamLayoutImages.vx_team .cs_team_meta {
+  margin-top: 18px;
+}
+
+.teamLayoutImages.vx_team .cs_member_name {
+  margin-bottom: 4px;
+  font: 700 19px/1.3 var(--vx-font-head);
+}
+
+.teamLayoutImages.vx_team .cs_member_designation {
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.teamLayoutImages.vx_team .cs_member_description {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--vx-muted);
+}
+
+@media (max-width: 767px) {
+  .teamLayoutImages.vx_team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 16px;
+  }
+
+  .teamLayoutImages.vx_team .cs_team,
+  .teamLayoutImages.vx_team .cs_team:nth-child(1),
+  .teamLayoutImages.vx_team .cs_team:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .teamLayoutImages.vx_team .cs_team:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+}
